@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 // pages
 
-Route::view('/','pages.home');
+Route::view('/','mail.otp-mail');
 
 // backend routes
 
-
-
+Route::post('/login',[userController::class,'login']);
+Route::post('/verifyLogin',[userController::class,'verifyLogin']);
+Route::get('/logout',[userController::class,'logOut']);
 
