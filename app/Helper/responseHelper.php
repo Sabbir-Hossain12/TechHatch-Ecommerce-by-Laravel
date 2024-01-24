@@ -6,9 +6,9 @@ use Illuminate\Http\JsonResponse;
 
 class responseHelper
 {
-    static function out($status,$message,$data,$code):JsonResponse
+    static function out($message,$data,$code):JsonResponse
     {
-        return response()->json(['status'=>$status,'message'=>$message,'data'=>$data],$code);
+        return response()->json(['message'=>$message,'data'=>$data],$code);
     }
 
 }

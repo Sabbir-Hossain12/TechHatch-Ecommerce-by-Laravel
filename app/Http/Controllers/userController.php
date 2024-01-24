@@ -43,16 +43,16 @@ class userController extends Controller
             if ($count) {
                 Mail::to($email)->send(new OtpMail($otp));
 
-                return responseHelper::out('success', 'Otp send to the email', null, 200);
+                return responseHelper::out('success',  null, 200);
 
             } else {
-                return responseHelper::out('failed', '', null, 200);
+                return responseHelper::out('failed', null, 200);
             }
 
 
         } catch (Exception $exception) {
 
-            return responseHelper::out('failed', $exception->getMessage(), null, 200);
+            return responseHelper::out($exception->getMessage(),null, 200);
 
         }
 
@@ -78,14 +78,14 @@ class userController extends Controller
 
                 $token = JWTToken::createToken($email, $id);
                 User::where('email', $email)->update(['otp' => 0]);
-                return responseHelper::out('success', 'User verified', null, 200)->cookie('token', $token, 24 * 60 * 60);
+                return responseHelper::out('success', null, 200)->cookie('token', $token, 24 * 60 * 60);
 
             } else {
-                return responseHelper::out('failed', '', null, 200);
+                return responseHelper::out('failed', null, 200);
             }
 
         } catch (Exception $exception) {
-            return responseHelper::out('failed', $exception->getMessage(), '', 200);
+            return responseHelper::out( $exception->getMessage(), '', 200);
         }
 
     }
@@ -93,6 +93,6 @@ class userController extends Controller
 
     function logOut()
     {
-        return   responseHelper::out('success', '', '', 200)->cookie('token', '', -1);
+        return   responseHelper::out('success',  '', 200)->cookie('token', '', -1);
     }
 }
