@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('product_sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name')->unique();
-            $table->string('category_img')->nullable();
+            $table->string('title',200);
+            $table->string('short_des',500);
+            $table->string('price');
+            $table->string('image');
             $table->string('slug');
-            $table->string('remarks')->nullable();
-            $table->boolean('status')->default(1)->comment('1=Active,0=inactive');
 
+            $table->unsignedBigInteger('product_id')->unique();
+            $table->foreign('product_id')->references('id')->on('products')->restrictOnDelete()->cascadeOnUpdate();
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('product_sliders');
     }
 };

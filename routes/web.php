@@ -10,7 +10,9 @@ Route::view('/','mail.otp-mail');
 
 // backend routes
 
+//auth
 Route::post('/login',[userController::class,'login']);
 Route::post('/verifyLogin',[userController::class,'verifyLogin']);
-Route::get('/logout',[userController::class,'logOut']);
+Route::get('/logout',[userController::class,'logOut'])->middleware([tokenMiddleware::class]);
 
+//brands

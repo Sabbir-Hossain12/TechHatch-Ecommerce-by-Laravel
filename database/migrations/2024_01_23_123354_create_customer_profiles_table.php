@@ -28,7 +28,7 @@ return new class extends Migration {
             $table->string('ship_country');
             $table->string('ship_phone');
             $table->unsignedBigInteger('user_id')->unique();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete()->cascadeOnUpdate();
 
 
             $table->timestamp('created_at')->useCurrent();
