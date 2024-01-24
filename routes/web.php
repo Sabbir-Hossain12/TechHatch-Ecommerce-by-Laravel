@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
 use App\Http\Middleware\tokenMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,7 @@ Route::get('/productsByCategory/{category_id}',[ProductController::class,'produc
 Route::get('/productsByRemark/{remark}',[ProductController::class,'productListByRemark']);
 Route::get('/productsSlider',[ProductController::class,'productSlider']);
 Route::get('/productsDetails/{id}',[ProductController::class,'productDetailsById']);
+
+//profile
+Route::post('/createProfile',[ProfileController::class,'createProfile'])->middleware([tokenMiddleware::class]);
+Route::get('/profile',[ProfileController::class,'profileList'])->middleware([tokenMiddleware::class]);
