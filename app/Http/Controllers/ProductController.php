@@ -54,12 +54,6 @@ class ProductController extends Controller
         }
     }
 
-    function productSlider():JsonResponse
-    {
-        $data=ProductSlider::all();
-
-        return responseHelper::out('success', $data, 200);
-    }
 
     function productDetailsById(Request $request):JsonResponse
     {
@@ -73,6 +67,8 @@ class ProductController extends Controller
             return responseHelper::out($exception->getMessage(), null, 200);
         }
     }
+
+
 
 
 
