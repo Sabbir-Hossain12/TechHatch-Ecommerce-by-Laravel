@@ -60,5 +60,5 @@ Route::post('/removeWish/{product_id}',[ProductWishlistController::class,'remove
 //product Cart
 Route::post('/createCart',[ProductCartController::class,'createCart'])->middleware([tokenMiddleware::class]);
 Route::get('/cartList',[ProductCartController::class,'cartList'])->middleware([tokenMiddleware::class]);
-Route::post('/removeCart/{product_id}',[ProductCartController::class,'removeCart'])->middleware([tokenMiddleware::class]);
+Route::get('/removeCart/{product_id}',[ProductCartController::class,'removeCart'])->middleware([tokenMiddleware::class]);
 
