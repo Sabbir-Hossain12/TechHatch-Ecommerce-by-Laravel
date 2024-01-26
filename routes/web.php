@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProductCartController;
 use App\Http\Controllers\ProductController;
@@ -59,6 +60,12 @@ Route::post('/removeWish/{product_id}',[ProductWishlistController::class,'remove
 
 //product Cart
 Route::post('/createCart',[ProductCartController::class,'createCart'])->middleware([tokenMiddleware::class]);
-Route::get('/cartList',[ProductCartController::class,'cartList'])->middleware([tokenMiddleware::class]);
+Route::get('/cartList',[ProductCartController::class,'cartList'])->middleware([tokenMiddleware::class]);;
 Route::get('/removeCart/{product_id}',[ProductCartController::class,'removeCart'])->middleware([tokenMiddleware::class]);
+
+//invoice
+
+Route::post('/createInvoice',[InvoiceController::class,'createInvoice'])->middleware([tokenMiddleware::class]);
+Route::get('/invoiceList',[InvoiceController::class,'invoiceList'])->middleware([tokenMiddleware::class]);
+Route::get('/invoiceProductList/{invoice_id}',[InvoiceController::class,'invoiceProductList'])->middleware([tokenMiddleware::class]);
 
