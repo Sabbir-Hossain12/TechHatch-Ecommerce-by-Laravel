@@ -7,6 +7,7 @@ use App\Helper\SSLCommerz;
 use App\Models\CustomerProfile;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
+use App\Models\Product;
 use App\Models\ProductCart;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -49,6 +50,9 @@ class InvoiceController extends Controller
 
             $product_cart = ProductCart::where('user_id', $user_id)->get();
             foreach ($product_cart as $cart) {
+
+                Product::where('id',$cart['product_id'])->decrement('qty',$cart['qty']);
+
                 InvoiceProduct::create(
                     [
                         'invoice_id' => $invoice->id,
