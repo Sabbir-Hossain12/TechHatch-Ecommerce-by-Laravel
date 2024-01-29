@@ -42,6 +42,8 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href=" {{asset('assets')}}/css/style.css">
     <link rel="stylesheet" href=" {{asset('assets')}}/css/responsive.css">
+    <link rel="stylesheet" href=" {{asset('assets')}}/css/custom.css">
+    <script src=" {{asset('assets')}}/js/axios.min.js"></script>
 
 </head>
 
@@ -65,7 +67,14 @@
 
 <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
 
-<!-- Latest jQuery -->
+{{--axios--}}
+
+<script src=" {{asset('assets')}}/js/config.js"></script>
+
+<script src=" {{asset('assets')}}/js/toastify-js.js"></script>
+
+
+{{--<!-- Latest jQuery -->--}}
 <script src=" {{asset('assets')}}/js/jquery-3.7.1.min.js"></script>
 <!-- popper min js -->
 <script src=" {{asset('assets')}}/js/popper.min.js"></script>
@@ -93,6 +102,6 @@
 <script src=" {{asset('assets')}}/js/jquery.elevatezoom.js"></script>
 <!-- scripts js -->
 <script src=" {{asset('assets')}}/js/scripts.js"></script>
-
+<script src=" {{asset('assets')}}/js/jquery.dataTables.min.js"></script>
 </body>
 </html>

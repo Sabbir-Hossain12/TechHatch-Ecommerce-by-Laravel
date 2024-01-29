@@ -17,7 +17,7 @@ class BrandController extends Controller
         }
         catch (Exception $e)
         {
-            return responseHelper::out('failed',null,200);
+            return responseHelper::out('failed',$e->getMessage(),200);
         }
 
     }
