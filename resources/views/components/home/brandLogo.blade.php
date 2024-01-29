@@ -1,5 +1,5 @@
 <!-- START SECTION CLIENT LOGO -->
-<div class="section pt-0 small_pb">
+<div class="section pt-0 small_pt">
     <div class="custom-container">
         <div class="row">
             <div class="col-md-12">

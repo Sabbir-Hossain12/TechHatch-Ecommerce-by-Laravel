@@ -4,8 +4,8 @@
         <div class="custom-container">
             <div class="nav_block">
                 <a class="navbar-brand" href="index.html">
-                    <img class="logo_light" src="assets/images/logo_light.png" alt="logo"/>
-                    <img class="logo_dark" src="assets/images/logo_dark.png" alt="logo"/>
+                    <img class="logo_light" src=" {{asset('assets')}}/images/capture.png" alt="logo"/>
+                    <img class="logo_dark" src="assets/images/capture2.png" alt="logo"/>
                 </a>
                 <div class="product_search_form rounded_input">
                     <form>
