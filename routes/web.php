@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'viewHome']);
 
-
+Route::get('/productslist',[ProductController::class,'viewProduct']);
 
 
 

@@ -12,6 +12,12 @@ use Mockery\Exception;
 
 class ProductController extends Controller
 {
+
+  public function viewProduct()
+  {
+      return view('pages.product-page');
+  }
+
     function productList():JsonResponse
     {
         try {

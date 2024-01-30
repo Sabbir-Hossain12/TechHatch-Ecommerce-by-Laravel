@@ -4,7 +4,7 @@
         <div class="custom-container">
             <div class="nav_block">
                 <a class="navbar-brand" href="index.html">
-                    <img class="logo_light" src=" {{asset('assets')}}/images/Capture_dark2.png" alt="logo"/>
+{{--                    <img class="logo_light" src=" {{asset('assets')}}/images/Capture_dark2.png" alt="logo"/>--}}
                     <img class="logo_dark" src=" {{asset('assets')}}/images/capture2.png" alt="logo"/>
                 </a>
                 <div class="product_search_form rounded_input">
@@ -122,14 +122,14 @@
                                     </div>
                                 </li>
 
-                                <li class="dropdown dropdown-mega-menu">
+                                <li class="dropdown ">
                                     <a class="dropdown-toggle nav-link" href="#"
                                        data-bs-toggle="dropdown">Products</a>
                                     <div class="dropdown-menu">
                                         <ul class="mega-menu d-lg-flex">
                                             <li class="mega-menu-col col-lg-3">
                                                 <ul id="productMenu">
-                                                    <li class="dropdown-header">Woman's</li>
+                                                    <li class="dropdown-header">Categories</li>
 
                                                 </ul>
                                             </li>
@@ -276,7 +276,7 @@
         let res = await axios.get('/categories')
 
         $('#catList').empty()
-        $('#productMenu').empty()
+        // $('#productMenu').empty()
         let category=res.data['data'].slice(0,10)
         category.forEach(function (item, index) {
 
