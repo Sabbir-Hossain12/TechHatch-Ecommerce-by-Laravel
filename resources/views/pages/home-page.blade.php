@@ -16,6 +16,8 @@
             await banner()
             await category()
             await TopCategory()
+            $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+
             await productByRemark('arrival', 'arrivalItem')
             await productByRemark('sellers', 'sellersItem')
             await productByRemark('featured', 'featuredItem')
