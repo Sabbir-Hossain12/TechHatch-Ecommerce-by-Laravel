@@ -58,10 +58,6 @@
         <!-- END SECTION SHOP -->
 
 <script>
-    productByRemark('arrival','arrivalItem')
-    productByRemark('sellers','sellersItem')
-    productByRemark('featured','featuredItem')
-    productByRemark('special','SpecialItem')
 
     async function productByRemark(remark,id)
     {

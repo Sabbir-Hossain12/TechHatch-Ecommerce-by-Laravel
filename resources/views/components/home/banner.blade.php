@@ -48,13 +48,12 @@
 <!-- END SECTION BANNER -->
 
 <script>
-    banner();
 
     async function banner() {
         let res = await axios.get('/productsSlider')
         $('#showBanner').empty()
 
-        console.log(res)
+
         res.data['data'].forEach(function (item, i) {
             let active = ''
             if (i === 0) {
@@ -72,7 +71,7 @@
             </div>
         </div>
     </div>`
-console.log(foreachBanner)
+
             $('#showBanner').append(foreachBanner)
         })
 

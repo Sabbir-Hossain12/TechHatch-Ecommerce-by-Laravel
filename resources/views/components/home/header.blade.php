@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-9 col-md-8 col-sm-6 col-9">
+                <div class="col-lg-6 col-md-8 col-sm-6 col-9">
                     <nav class="navbar navbar-expand-lg">
                         <button class="navbar-toggler side_navbar_toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSidetoggle" aria-expanded="false">
@@ -121,68 +121,25 @@
                                         </ul>
                                     </div>
                                 </li>
+
                                 <li class="dropdown dropdown-mega-menu">
                                     <a class="dropdown-toggle nav-link" href="#"
                                        data-bs-toggle="dropdown">Products</a>
                                     <div class="dropdown-menu">
                                         <ul class="mega-menu d-lg-flex">
                                             <li class="mega-menu-col col-lg-3">
-                                                <ul>
+                                                <ul id="productMenu">
                                                     <li class="dropdown-header">Woman's</li>
 
                                                 </ul>
                                             </li>
-                                            <li class="mega-menu-col col-lg-3">
-                                                <ul>
-                                                    <li class="dropdown-header">Men's</li>
-                                                    <li><a class="dropdown-item nav-link nav_item"
-                                                           href="shop-cart.html">Donec vitae ante ante</a></li>
 
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-3">
-                                                <ul>
-                                                    <li class="dropdown-header">Kid's</li>
-                                                    <li><a class="dropdown-item nav-link nav_item"
-                                                           href="shop-product-detail.html">Donec vitae facilisis</a>
-                                                    </li>
-
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-3">
-                                                <ul>
-                                                    <li class="dropdown-header">Accessories</li>
-                                                    <li><a class="dropdown-item nav-link nav_item"
-                                                           href="shop-product-detail.html">Donec vitae facilisis</a>
-                                                    </li>
-
-                                                </ul>
-                                            </li>
                                         </ul>
-                                        <div class="d-lg-flex menu_banners row g-3 px-3">
-                                            <div class="col-lg-6">
-                                                <div class="header-banner">
-                                                    <div class="sale-banner">
-                                                        <a class="hover_effect1" href="#">
-                                                            <img src="assets/images/shop_banner_img7.jpg"
-                                                                 alt="shop_banner_img7">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="header-banner">
-                                                    <div class="sale-banner">
-                                                        <a class="hover_effect1" href="#">
-                                                            <img src="assets/images/shop_banner_img8.jpg"
-                                                                 alt="shop_banner_img8">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </li>
+
+
                                 <li class="dropdown">
                                     <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Blog</a>
                                     <div class="dropdown-menu dropdown-reverse">
@@ -297,10 +254,10 @@
                                 <li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li>
                             </ul>
                         </div>
-                        <div class="contact_phone contact_support">
-                            <i class="linearicons-phone-wave"></i>
-                            <span>123-456-7689</span>
-                        </div>
+{{--                        <div class="contact_phone contact_support">--}}
+{{--                            <i class="linearicons-phone-wave"></i>--}}
+{{--                            <span>123-456-7689</span>--}}
+{{--                        </div>--}}
                     </nav>
                 </div>
             </div>
@@ -312,14 +269,14 @@
 
 <script>
 
-    category();
+
 
     async function category() {
 
         let res = await axios.get('/categories')
-        console.log(res)
-        $('#catList').empty()
 
+        $('#catList').empty()
+        $('#productMenu').empty()
         let category=res.data['data'].slice(0,10)
         category.forEach(function (item, index) {
 
@@ -345,9 +302,10 @@
                                         </ul>
                                     </div>
                                 </li>`
-
+let pro= ` <li><a class="dropdown-item nav-link nav_item" href="">${item['category_name']} </a></li>`
 
             $('#catList').append(cat)
+            $('#productMenu').append(pro)
 
         })
 

@@ -17,10 +17,10 @@
 
 
 <script>
-    TopCategory();
+
     async function TopCategory(){
         let res=await axios.get("/categories");
-        console.log(res)
+
         $("#TopCategoryItem").empty()
         res.data['data'].slice(0,6). forEach((item,i)=>{
             let EachItem= `<div class="p-2 col-2">

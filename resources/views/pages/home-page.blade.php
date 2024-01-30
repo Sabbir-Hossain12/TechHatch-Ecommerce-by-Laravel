@@ -10,4 +10,19 @@
     @include('components.home.trending')
     @include('components.home.brandLogo')
     @include('components.home.footer')
+
+    <script>
+        (async () => {
+            await banner()
+            await category()
+            await TopCategory()
+            await productByRemark('arrival', 'arrivalItem')
+            await productByRemark('sellers', 'sellersItem')
+            await productByRemark('featured', 'featuredItem')
+            await productByRemark('special', 'SpecialItem')
+
+
+        })()
+
+    </script>
 @endsection
