@@ -66,7 +66,7 @@
     async function productByRemark(remark,id)
     {
         let res= await axios.get(`/productsByRemark/${remark}`)
-        console.log(res)
+
         $(`#${id}`).empty()
 
         res.data['data'].forEach(function (item,i)
@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
                             </div>`
-            console.log(eachProduct)
+
             $(`#${id}`).append(eachProduct)
         })
 
