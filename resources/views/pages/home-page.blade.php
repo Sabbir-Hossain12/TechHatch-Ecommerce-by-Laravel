@@ -7,7 +7,7 @@
     @include('components.home.TopCategories')
     @include('components.home.exclusive')
     @include('components.home.smallBanner')
-    @include('components.home.trending')
+    @include('components.home.topBrands')
     @include('components.home.brandLogo')
     @include('components.include.footer')
 
@@ -22,7 +22,7 @@
             await productByRemark('sellers', 'sellersItem')
             await productByRemark('featured', 'featuredItem')
             await productByRemark('special', 'SpecialItem')
-
+                await  TopBrands();
 
         })()
 

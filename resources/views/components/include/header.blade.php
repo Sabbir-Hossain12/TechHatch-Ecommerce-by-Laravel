@@ -1,260 +1,41 @@
-<header class="header_wrap fixed-top header_with_topbar">
-    <div class="top-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-start">
-                        <div class="lng_dropdown me-2">
-                            <div style="height: 0px; overflow: hidden; position: absolute;" class="ddOutOfVision"
-                                 id="msdrpdd20_msddHolder"><select name="countries" class="custome_select"
-                                                                   id="msdrpdd20" tabindex="-1">
-                                    <option value="en" data-image="assets/images/eng.png" data-title="English">English
-                                    </option>
-                                    <option value="fn" data-image="assets/images/fn.png" data-title="France">France
-                                    </option>
-                                    <option value="us" data-image="assets/images/us.png" data-title="United States">
-                                        United States
-                                    </option>
-                                </select></div>
-                            <div class="dd ddcommon borderRadius" style="width: 135.917px;" id="msdrpdd20_msdd"
-                                 tabindex="0">
-                                <div class="ddTitle borderRadiusTp"><span class="divider"></span><span
-                                        class="ddArrow arrowoff"></span><span class="ddTitleText " id="msdrpdd20_title"><img
-                                            src="assets/images/eng.png" class="fnone"><span
-                                            class="ddlabel">English</span><span class="description"
-                                                                                style="display: none;"></span></span>
-                                </div>
-                                <input id="msdrpdd20_titleText" type="text" autocomplete="off"
-                                       class="text shadow borderRadius" style="display: none;">
-                                <div class="ddChild ddchild_ border shadow" id="msdrpdd20_child"
-                                     style="z-index: 9999; display: none; position: absolute; visibility: visible; height: 108px;">
-                                    <ul>
-                                        <li class="enabled _msddli_ selected" title="English"><img
-                                                src="assets/images/eng.png" class="fnone"><span
-                                                class="ddlabel">English</span>
-                                            <div class="clear"></div>
-                                        </li>
-                                        <li class="enabled _msddli_" title="France"><img src="assets/images/fn.png"
-                                                                                         class="fnone"><span
-                                                class="ddlabel">France</span>
-                                            <div class="clear"></div>
-                                        </li>
-                                        <li class="enabled _msddli_" title="United States"><img
-                                                src="assets/images/us.png" class="fnone"><span class="ddlabel">United States</span>
-                                            <div class="clear"></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="me-3">
-                            <div style="height: 0px; overflow: hidden; position: absolute;" class="ddOutOfVision"
-                                 id="msdrpdd21_msddHolder"><select name="countries" class="custome_select"
-                                                                   id="msdrpdd21" tabindex="-1">
-                                    <option value="USD" data-title="USD">USD</option>
-                                    <option value="EUR" data-title="EUR">EUR</option>
-                                    <option value="GBR" data-title="GBR">GBR</option>
-                                </select></div>
-                            <div class="dd ddcommon borderRadius" style="width: 62px;" id="msdrpdd21_msdd" tabindex="0">
-                                <div class="ddTitle borderRadiusTp"><span class="divider"></span><span
-                                        class="ddArrow arrowoff"></span><span class="ddTitleText " id="msdrpdd21_title"><span
-                                            class="ddlabel">USD</span><span class="description"
-                                                                            style="display: none;"></span></span></div>
-                                <input id="msdrpdd21_titleText" type="text" autocomplete="off"
-                                       class="text shadow borderRadius" style="display: none;">
-                                <div class="ddChild ddchild_ border shadow" id="msdrpdd21_child"
-                                     style="z-index: 9999; display: none; position: absolute; visibility: visible; height: 108px;">
-                                    <ul>
-                                        <li class="enabled _msddli_ selected" title="USD"><span
-                                                class="ddlabel">USD</span>
-                                            <div class="clear"></div>
-                                        </li>
-                                        <li class="enabled _msddli_" title="EUR"><span class="ddlabel">EUR</span>
-                                            <div class="clear"></div>
-                                        </li>
-                                        <li class="enabled _msddli_" title="GBR"><span class="ddlabel">GBR</span>
-                                            <div class="clear"></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="contact_detail text-center text-lg-start">
-                            <li><i class="ti-mobile"></i><span>123-456-7890</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center text-md-end">
-                        <ul class="header_list">
-                            <li><a href="compare.html"><i class="ti-control-shuffle"></i><span>Compare</span></a></li>
-                            <li><a href="wishlist.html"><i class="ti-heart"></i><span>Wishlist</span></a></li>
-                            <li><a href="login.html"><i class="ti-user"></i><span>Login</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bottom_header dark_skin main_menu_uppercase">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html">
-{{--                    <img class="logo_light" src="assets/images/logo_light.png" alt="logo">--}}
-                    <img class="logo_dark" src="assets/images/capture2.png" alt="logo">
+<!-- START HEADER -->
+<header class="header_wrap">
+    <div class="middle-header dark_skin">
+        <div class="custom-container">
+            <div class="nav_block">
+                <a class="navbar-brand" href="{{route('home')}}">
+{{--                    <img class="logo_light" src=" {{asset('assets')}}/images/Capture_dark2.png" alt="logo"/>--}}
+                    <img class="logo_dark" src=" {{asset('assets')}}/images/capture2.png" alt="logo"/>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-expanded="false">
-                    <span class="ion-android-menu"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="dropdown">
-                            <a data-bs-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Home</a>
-                            <div class="dropdown-menu">
-                                <ul>
-                                    <li><a class="dropdown-item nav-link nav_item" href="index.html">Fashion 1</a></li>
-
-                                </ul>
+                <div class="product_search_form rounded_input">
+                    <form>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="custom_select">
+                                    <select class="first_null">
+                                        <option value="">All Category</option>
+                                        <option value="Dresses">Dresses</option>
+                                        <option value="Shirt-Tops">Shirt & Tops</option>
+                                        <option value="T-Shirt">T-Shirt</option>
+                                        <option value="Pents">Pents</option>
+                                        <option value="Jeans">Jeans</option>
+                                    </select>
+                                </div>
                             </div>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu">
-                                <ul>
-                                    <li><a class="dropdown-item nav-link nav_item" href="about.html">About Us</a></li>
-
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Products</a>
-                            <div class="dropdown-menu">
-                                <ul class="mega-menu d-lg-flex">
-                                    <li class="mega-menu-col col-lg-3">
-                                        <ul id="productMenu">
-
-                                        </ul>
-                                    </li>
-
-                                </ul>
-
-                            </div>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Blog</a>
-                            <div class="dropdown-menu dropdown-reverse">
-                                <ul>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">Grids</a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a class="dropdown-item nav-link nav_item"
-                                                       href="blog-three-columns.html">3 columns</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">Masonry</a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a class="dropdown-item nav-link nav_item"
-                                                       href="blog-masonry-three-columns.html">3 columns</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">Single Post</a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a class="dropdown-item nav-link nav_item" href="blog-single.html">Default</a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item menu-link dropdown-toggler" href="#">List</a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a class="dropdown-item nav-link nav_item"
-                                                       href="blog-list-left-sidebar.html">left sidebar</a></li>
-                                                <li><a class="dropdown-item nav-link nav_item"
-                                                       href="blog-list-right-sidebar.html">right sidebar</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown dropdown-mega-menu">
-                            <a class="dropdown-toggle nav-link active" href="#" data-bs-toggle="dropdown">Shop</a>
-                            <div class="dropdown-menu">
-                                <ul class="mega-menu d-lg-flex">
-                                    <li class="mega-menu-col col-lg-9">
-                                        <ul class="d-lg-flex">
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Shop Page Layout</li>
-
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Other Pages</li>
-
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-4">
-                                                <ul>
-                                                    <li class="dropdown-header">Product Pages</li>
-
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="mega-menu-col col-lg-3">
-                                        <div class="header_banner">
-                                            <div class="header_banner_content">
-                                                <div class="shop_banner">
-                                                    <div class="banner_img overlay_bg_40">
-                                                        <img src="assets/images/shop_banner.jpg" alt="shop_banner">
-                                                    </div>
-                                                    <div class="shop_bn_content">
-                                                        <h5 class="text-uppercase shop_subtitle">New Collection</h5>
-                                                        <h3 class="text-uppercase shop_title">Sale 30% Off</h3>
-                                                        <a href="#"
-                                                           class="btn btn-white rounded-0 btn-sm text-uppercase">Shop
-                                                            Now</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li>
-                    </ul>
+                            <input class="form-control" placeholder="Search Product..." required="" type="text">
+                            <button type="submit" class="search_btn2"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
                 <ul class="navbar-nav attr-nav align-items-center">
-                    <li><a href="javascript:;" class="nav-link search_trigger"><i class="linearicons-magnifier"></i></a>
-                        <div class="search_wrap">
-                            <span class="close-search"><i class="ion-ios-close-empty"></i></span>
-                            <form>
-                                <input type="text" placeholder="Search" class="form-control" id="search_input">
-                                <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
-                            </form>
-                        </div>
-                        <div class="search_overlay"></div>
-                        <div class="search_overlay"></div>
-                    </li>
+                    <li><a href="#" class="nav-link"><i class="linearicons-user"></i></a></li>
+                    <li><a href="#" class="nav-link"><i class="linearicons-heart"></i><span
+                                class="wishlist_count">0</span></a></li>
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#"
                                                           data-bs-toggle="dropdown"><i
-                                class="linearicons-cart"></i><span class="cart_count">2</span></a>
-                        <div class="cart_box dropdown-menu dropdown-menu-right">
+                                class="linearicons-bag2"></i><span class="cart_count">2</span><span class="amount"><span
+                                    class="currency_symbol">$</span>159.00</span></a>
+                        <div class="cart_box cart_right dropdown-menu dropdown-menu-right">
                             <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
@@ -280,35 +61,249 @@
                         </div>
                     </li>
                 </ul>
-            </nav>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_header dark_skin main_menu_uppercase border-top border-bottom">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-3">
+
+                   @if(Route::currentRouteName()==='home')
+
+                    <div class="categories_wrap">
+                        <button type="button" data-bs-toggle="show" data-bs-target="#navCatContent"
+                                aria-expanded="false" class="categories_btn">
+                            <i class="linearicons-menu"></i><span>All Categories </span>
+                        </button>
+                        <div id="navCatContent" class="nav_cat navbar nav collapse">
+                            <ul id="catList">
+
+
+                            </ul>
+
+                            <div class="more_categories">More Categories</div>
+                        </div>
+                    </div>
+
+                    @endif
+
+                </div>
+
+                <div class="col-lg-6 col-md-8 col-sm-6 col-9">
+                    <nav class="navbar navbar-expand-lg">
+                        <button class="navbar-toggler side_navbar_toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSidetoggle" aria-expanded="false">
+                            <span class="ion-android-menu"></span>
+                        </button>
+                        <div class="pr_search_icon">
+                            <a href="javascript:;" class="nav-link pr_search_trigger"><i
+                                    class="linearicons-magnifier"></i></a>
+                        </div>
+                        <div class="collapse navbar-collapse mobile_side_menu" id="navbarSidetoggle">
+                            <ul class="navbar-nav">
+                                <li class=" ">
+                                    <a data-bs-toggle="" class="nav-link active"
+                                       href="{{route('home')}}">Home</a>
+
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Pages</a>
+                                    <div class="dropdown-menu">
+                                        <ul>
+                                            <li><a class="dropdown-item nav-link nav_item" href="about.html">About
+                                                    Us</a></li>
+
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="dropdown ">
+                                    <a class="dropdown-toggle nav-link" href="#"
+                                       data-bs-toggle="dropdown">Products</a>
+                                    <div class="dropdown-menu">
+                                        <ul class="mega-menu d-lg-flex">
+                                            <li class="mega-menu-col col-lg-3">
+                                                <ul id="productMenu">
+                                                    <li class="dropdown-header">Categories</li>
+
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Blog</a>
+                                    <div class="dropdown-menu dropdown-reverse">
+                                        <ul>
+                                            <li>
+                                                <a class="dropdown-item menu-link dropdown-toggler"
+                                                   href="#">Grids</a>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li><a class="dropdown-item nav-link nav_item"
+                                                               href="blog-three-columns.html">3 columns</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item menu-link dropdown-toggler"
+                                                   href="#">Masonry</a>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li><a class="dropdown-item nav-link nav_item"
+                                                               href="blog-masonry-three-columns.html">3 columns</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item menu-link dropdown-toggler" href="#">Single
+                                                    Post</a>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li><a class="dropdown-item nav-link nav_item"
+                                                               href="blog-single.html">Default</a></li>
+
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item menu-link dropdown-toggler"
+                                                   href="#">List</a>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li><a class="dropdown-item nav-link nav_item"
+                                                               href="blog-list-left-sidebar.html">left sidebar</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item nav-link nav_item"
+                                                               href="blog-list-right-sidebar.html">right sidebar</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="dropdown dropdown-mega-menu">
+                                    <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Shop</a>
+                                    <div class="dropdown-menu">
+                                        <ul class="mega-menu d-lg-flex">
+                                            <li class="mega-menu-col col-lg-9">
+                                                <ul class="d-lg-flex">
+                                                    <li class="mega-menu-col col-lg-4">
+                                                        <ul>
+                                                            <li class="dropdown-header">Shop Page Layout</li>
+                                                            <li><a class="dropdown-item nav-link nav_item"
+                                                                   href="shop-list.html">shop List view</a></li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-menu-col col-lg-4">
+                                                        <ul>
+                                                            <li class="dropdown-header">Other Pages</li>
+                                                            <li><a class="dropdown-item nav-link nav_item"
+                                                                   href="shop-cart.html">Cart</a></li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-menu-col col-lg-4">
+                                                        <ul>
+                                                            <li class="dropdown-header">Product Pages</li>
+                                                            <li><a class="dropdown-item nav-link nav_item"
+                                                                   href="shop-product-detail.html">Default</a></li>
+
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-menu-col col-lg-3">
+                                                <div class="header_banner">
+                                                    <div class="header_banner_content">
+                                                        <div class="shop_banner">
+                                                            <div class="banner_img overlay_bg_40">
+                                                                <img src="assets/images/shop_banner3.jpg"
+                                                                     alt="shop_banner"/>
+                                                            </div>
+                                                            <div class="shop_bn_content">
+                                                                <h5 class="text-uppercase shop_subtitle">New
+                                                                    Collection</h5>
+                                                                <h3 class="text-uppercase shop_title">Sale 30%
+                                                                    Off</h3>
+                                                                <a href="#"
+                                                                   class="btn btn-white rounded-0 btn-sm text-uppercase">Shop
+                                                                    Now</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+{{--                        <div class="contact_phone contact_support">--}}
+{{--                            <i class="linearicons-phone-wave"></i>--}}
+{{--                            <span>123-456-7689</span>--}}
+{{--                        </div>--}}
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
 </header>
+<!-- END HEADER -->
+
 
 <script>
 
 
 
-
-
-        async function category() {
+    async function category() {
 
         let res = await axios.get('/categories')
 
-        $('#productMenu').empty()
+        $('#catList').empty()
+        // $('#productMenu').empty()
         let category=res.data['data'].slice(0,10)
         category.forEach(function (item, index) {
 
 
+            let cat = `<li class="dropdown dropdown-mega-menu">
+                                    <a class="dropdown-item nav-link dropdown-toggler" href=""
+                                       data-bs-toggle="dropdown"><i class="flaticon-tv"></i> <span>${item['category_name']}</span></a>
+                                    <div class="dropdown-menu">
+                                        <ul class="mega-menu d-lg-flex">
+                                            <li class="mega-menu-col col-lg-6">
+                                                <ul class="d-lg-flex">
+                                                    <li class=" col-lg-6">
+                                                        <ul>
+                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Vestibulum
+                                                                    sed</a></li>
 
-        let pro= ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCategory?id=${item['id']}">${item['category_name']} </a></li>`
+                                                        </ul>
+                                                    </li>
 
+                                                </ul>
+                                            </li>
 
-        $('#productMenu').append(pro)
+                                        </ul>
+                                    </div>
+                                </li>`
+let pro= ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCategory?id=${item['id']}">${item['category_name']} </a></li>`
 
-    })
+            $('#catList').append(cat)
+            $('#productMenu').append(pro)
+
+        })
 
     }
-
-
 </script>

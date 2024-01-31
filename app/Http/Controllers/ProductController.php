@@ -15,7 +15,7 @@ class ProductController extends Controller
 
   public function viewProduct()
   {
-      return view('pages.product-page');
+      return view('pages.productByCategory-page');
   }
 
     function productList():JsonResponse

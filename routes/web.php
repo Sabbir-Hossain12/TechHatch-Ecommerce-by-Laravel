@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'viewHome'])->name('home');
 
-Route::get('/productsList',[ProductController::class,'viewProduct']);
+Route::get('/productsByCategory',[ProductController::class,'viewProduct']);
 
-
+Route::view('/productsByBrand','pages.productByBrand-page');
 
 
 

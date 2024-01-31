@@ -3,17 +3,20 @@
 @section('content')
 
     @include('components.product.breadcrumb')
-    @include('components.product.shop')
-    @include('components.include.footer')
+    @include('components.product.productsByBrand')
+
 
     <script>
         (async () => {
 
                 await category()
-              await ByCategory()
+                await ByBrands()
+
             }
         )()
 
     </script>
+
+    @include('components.include.footer')
 @endsection
 

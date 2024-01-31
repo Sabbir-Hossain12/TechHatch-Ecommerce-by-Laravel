@@ -59,17 +59,17 @@
 {{--</div>--}}
 
 <!-- END LOADER -->
-@if(Route::currentRouteName()==='home')
+{{--@if(Route::currentRouteName()==='home')--}}
 
-    @include('components.home.header')
+{{--    @include('components.home.header')--}}
 
-@else
+{{--@else--}}
 
-    @include('components.include.header')
+{{--    @include('components.include.header')--}}
 
-@endif
+{{--@endif--}}
 
-{{--@include('components.include.header')--}}
+@include('components.include.header')
 <div>
 
     @yield('content')
