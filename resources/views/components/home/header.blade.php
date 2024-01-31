@@ -100,16 +100,10 @@
                         </div>
                         <div class="collapse navbar-collapse mobile_side_menu" id="navbarSidetoggle">
                             <ul class="navbar-nav">
-                                <li class="dropdown">
-                                    <a data-bs-toggle="dropdown" class="nav-link dropdown-toggle active"
-                                       href="#">Home</a>
-                                    <div class="dropdown-menu">
-                                        <ul>
-                                            <li><a class="dropdown-item nav-link nav_item" href="index.html">Fashion
-                                                    1</a></li>
+                                <li class=" ">
+                                    <a data-bs-toggle="" class="nav-link active"
+                                       href="{{route('home')}}">Home</a>
 
-                                        </ul>
-                                    </div>
                                 </li>
                                 <li class="dropdown">
                                     <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Pages</a>
@@ -302,7 +296,7 @@
                                         </ul>
                                     </div>
                                 </li>`
-let pro= ` <li><a class="dropdown-item nav-link nav_item" href="">${item['category_name']} </a></li>`
+let pro= ` <li><a class="dropdown-item nav-link nav_item" href="/productsList?id=${item['id']}">${item['category_name']} </a></li>`
 
             $('#catList').append(cat)
             $('#productMenu').append(pro)

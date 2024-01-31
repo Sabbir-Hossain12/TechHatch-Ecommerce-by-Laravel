@@ -57,10 +57,21 @@
 {{--        <span></span>--}}
 {{--    </div>--}}
 {{--</div>--}}
+
 <!-- END LOADER -->
+@if(Route::currentRouteName()==='home')
 
+    @include('components.home.header')
 
+@else
+
+    @include('components.include.header')
+
+@endif
+
+{{--@include('components.include.header')--}}
 <div>
+
     @yield('content')
 </div>
 

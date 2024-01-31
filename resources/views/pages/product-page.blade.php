@@ -2,14 +2,17 @@
 
 @section('content')
 
-@include('components.product.topbar')
+    @include('components.product.breadcrumb')
+    @include('components.product.shop')
+    @include('components.include.footer')
 
-<script>
-    ( async()=> {
+    <script>
+        (async () => {
 
-            await category()
-        }
-     )()
+                await category()
+              await ByCategory()
+            }
+        )()
 
     </script>
 @endsection

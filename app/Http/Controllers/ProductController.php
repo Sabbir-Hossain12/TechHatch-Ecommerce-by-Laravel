@@ -32,7 +32,7 @@ class ProductController extends Controller
     function productListByBrand(Request $request):JsonResponse
     {
         try {
-            $data = Product::where('brand_id', $request->brand_id)->with('brand', 'category')->get();
+            $data = Product::where('brand_id', $request->id)->with('brand', 'category')->get();
             return responseHelper::out('success', $data, 200);
         } catch (Exception $exception) {
             return responseHelper::out($exception->getMessage(), null, 200);
@@ -43,7 +43,7 @@ class ProductController extends Controller
     {
 
         try {
-            $data = Product::where('category_id', $request->category_id)->with('brand', 'category')->get();
+            $data = Product::where('category_id', $request->id)->with('brand', 'category')->get();
             return responseHelper::out('success', $data, 200);
         } catch (Exception $exception) {
             return responseHelper::out($exception->getMessage(), null, 200);

@@ -301,7 +301,7 @@
 
 
 
-        let pro= ` <li><a class="dropdown-item nav-link nav_item" href="">${item['category_name']} </a></li>`
+        let pro= ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCategory?id=${item['id']}">${item['category_name']} </a></li>`
 
 
         $('#productMenu').append(pro)

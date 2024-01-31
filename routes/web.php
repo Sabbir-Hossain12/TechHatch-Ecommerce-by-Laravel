@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 //********************* Frontend Page Routes ***********************
 //******************************************************************
 
-Route::get('/',[HomeController::class,'viewHome']);
+Route::get('/',[HomeController::class,'viewHome'])->name('home');
 
-Route::get('/productslist',[ProductController::class,'viewProduct']);
+Route::get('/productsList',[ProductController::class,'viewProduct']);
 
 
 
@@ -41,8 +41,8 @@ Route::get('/brands', [BrandController::class, 'brandList']);
 Route::get('/categories', [CategoryController::class, 'categoryList']);
 //products
 Route::get('/products', [ProductController::class, 'productList']);
-Route::get('/productsByBrand/{brand_id}', [ProductController::class, 'productListByBrand']);
-Route::get('/productsByCategory/{category_id}', [ProductController::class, 'productListByCategory']);
+Route::get('/productsByBrand/{id}', [ProductController::class, 'productListByBrand']);
+Route::get('/productsByCategory/{id}', [ProductController::class, 'productListByCategory']);
 Route::get('/productsByRemark/{remark}', [ProductController::class, 'productListByRemark']);
 Route::get('/productsSlider', [ProductSliderController::class, 'productSlider']);
 Route::get('/productsDetails/{id}', [ProductController::class, 'productDetailsById']);
