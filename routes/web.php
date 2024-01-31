@@ -24,7 +24,7 @@ Route::get('/',[HomeController::class,'viewHome'])->name('home');
 Route::get('/productsByCategory',[ProductController::class,'viewProduct']);
 
 Route::view('/productsByBrand','pages.productByBrand-page');
-
+Route::view('/productDetails','pages.productDetails-page');
 
 
 // *****************************************************************
