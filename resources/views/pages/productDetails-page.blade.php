@@ -8,7 +8,8 @@
 
     <script>
         (async () => {
-            await category()
+                await category()
+                await productDetails()
                 await TopBrands()
 
             }

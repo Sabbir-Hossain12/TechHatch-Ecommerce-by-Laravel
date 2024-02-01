@@ -35,3 +35,8 @@ a:hover{
   align-items: center;
   min-height: 85vh;
 }
+.pro-card
+{    display: flex ;
+   align-items: stretch;
+
+}
