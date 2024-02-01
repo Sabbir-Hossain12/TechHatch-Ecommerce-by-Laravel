@@ -55,7 +55,7 @@ Route::get('/profile', [ProfileController::class, 'profileList'])->middleware([t
 Route::post('/CreateReview', [ProductReviewController::class, 'createReview'])->middleware([tokenMiddleware::class]);
 Route::get('/review/{product_id}', [ProductReviewController::class, 'listReview']);
 //product wish
-Route::post('/createWish', [ProductWishlistController::class, 'createWish'])->middleware([tokenMiddleware::class]);
+Route::get('/createWish/{product_id}', [ProductWishlistController::class, 'createWish'])->middleware([tokenMiddleware::class]);
 Route::get('/wishList', [ProductWishlistController::class, 'wishList'])->middleware([tokenMiddleware::class]);
 Route::post('/removeWish/{product_id}', [ProductWishlistController::class, 'removeWish'])->middleware([tokenMiddleware::class]);
 //product Cart

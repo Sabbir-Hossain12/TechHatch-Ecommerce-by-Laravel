@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Helper\JWTToken;
+use App\Helper\responseHelper;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class tokenMiddleware
         $result = JWTToken::decodeToken($token);
 
         if ($result === "Unauthorized") {
-            return redirect("/loginPage");
+            return ResponseHelper::Out('unauthorized',null,401);
         } else {
             //  This line sets a custom HTTP header named 'email' in the request.
             //   It appears to retrieve the email information from the $result object  and assigns it to the 'email' header.

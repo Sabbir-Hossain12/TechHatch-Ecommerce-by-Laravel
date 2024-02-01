@@ -141,9 +141,10 @@
 
 <script>
 
+    let para = new URLSearchParams(window.location.search)
+    let id = para.get('id')
+
     async function productDetails() {
-        let para = new URLSearchParams(window.location.search)
-        let id = para.get('id')
 
 
         let res = await axios.get(`/productsDetails/${id}`)
@@ -176,5 +177,37 @@
 
         $('#p_details').text(res.data['data']['des'])
     }
+
+    async function AddToWishList() {
+        try {
+
+            let res = await axios.get(`/createWish/${id}`)
+        } catch (e) {
+            if (e.response.status === 401) {
+                window.location.href = '/'
+            }
+        }
+    }
+
+    async function AddToCart() {
+        try {
+            let obj = {
+
+                "product_id": id,
+                "color": $('#p_color').val(),
+                "size": $('#p_size').val(),
+                "qty": $('#p_qty').val()
+
+            }
+            console.log(obj)
+
+            let res = await axios.post(`/createCart`, obj)
+        } catch (e) {
+            if (e.response.status === 401) {
+                // window.location.href='/'
+            }
+        }
+    }
+
 
 </script>

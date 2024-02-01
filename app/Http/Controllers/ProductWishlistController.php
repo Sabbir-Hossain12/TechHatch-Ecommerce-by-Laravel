@@ -14,8 +14,8 @@ class ProductWishlistController extends Controller
     {
         try {
             $user_id = $request->header('id');
-            $data = ProductWish::updateOrCreate(['user_id' => $user_id, 'product_id' => $request->input('product_id')]
-                , ['user_id' => $user_id, 'product_id' => $request->input('product_id')]);
+            $data = ProductWish::updateOrCreate(['user_id' => $user_id, 'product_id' => $request->product_id]
+                , ['user_id' => $user_id, 'product_id' => $request->product_id]);
 
             return responseHelper::out('success', $data, 201);
         } catch (Exception $exception) {
