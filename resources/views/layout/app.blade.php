@@ -44,19 +44,20 @@
     <link rel="stylesheet" href=" {{asset('assets')}}/css/responsive.css">
     <link rel="stylesheet" href=" {{asset('assets')}}/css/custom.css">
     <script src=" {{asset('assets')}}/js/axios.min.js"></script>
-
+    {{--<!-- Latest jQuery -->--}}
+    <script src=" {{asset('assets')}}/js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
 
 <!-- LOADER -->
-{{--<div class="preloader">--}}
-{{--    <div class="lds-ellipsis">--}}
-{{--        <span></span>--}}
-{{--        <span></span>--}}
-{{--        <span></span>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<div class="preloader">
+    <div class="lds-ellipsis">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
 
 <!-- END LOADER -->
 {{--@if(Route::currentRouteName()==='home')--}}
@@ -85,8 +86,7 @@
 <script src=" {{asset('assets')}}/js/toastify-js.js"></script>
 
 
-{{--<!-- Latest jQuery -->--}}
-<script src=" {{asset('assets')}}/js/jquery-3.7.1.min.js"></script>
+
 <!-- popper min js -->
 <script src=" {{asset('assets')}}/js/popper.min.js"></script>
 <!-- Latest compiled and minified Bootstrap -->

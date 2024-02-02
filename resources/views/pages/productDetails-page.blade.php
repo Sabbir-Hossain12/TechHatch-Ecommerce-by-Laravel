@@ -10,6 +10,11 @@
         (async () => {
                 await category()
                 await productDetails()
+
+
+                $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+
+
                 await TopBrands()
 
             }

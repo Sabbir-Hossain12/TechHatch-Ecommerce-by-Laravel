@@ -12,13 +12,10 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="custom_select">
-                                    <select class="first_null">
+                                    <select class="first_null" id="searchCategory">
                                         <option value="">All Category</option>
-                                        <option value="Dresses">Dresses</option>
-                                        <option value="Shirt-Tops">Shirt & Tops</option>
-                                        <option value="T-Shirt">T-Shirt</option>
-                                        <option value="Pents">Pents</option>
-                                        <option value="Jeans">Jeans</option>
+
+
                                     </select>
                                 </div>
                             </div>
@@ -27,10 +24,15 @@
                         </div>
                     </form>
                 </div>
+
                 <ul class="navbar-nav attr-nav align-items-center">
-                    <li><a href="#" class="nav-link"><i class="linearicons-user"></i></a></li>
+                    <li class=""><a href="{{url('/login')}}" class="nav-link " ><span class="bold " id="user"> login </span><i class="linearicons-user"></i></a></li>
+
+
+
                     <li><a href="#" class="nav-link"><i class="linearicons-heart"></i><span
                                 class="wishlist_count">0</span></a></li>
+
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="#"
                                                           data-bs-toggle="dropdown"><i
                                 class="linearicons-bag2"></i><span class="cart_count">2</span><span class="amount"><span
@@ -39,14 +41,14 @@
                             <ul class="cart_list">
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb1.jpg" alt="cart_thumb1">Variable
+                                    <a href="#"><img src=" {{asset('assets')}}/images/cart_thamb1.jpg" alt="cart_thumb1">Variable
                                         product 001</a>
                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span
                                                 class="price_symbole">$</span></span>78.00</span>
                                 </li>
                                 <li>
                                     <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src="assets/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed
+                                    <a href="#"><img src=" {{asset('assets')}}/images/cart_thamb2.jpg" alt="cart_thumb2">Ornare sed
                                         consequat</a>
                                     <span class="cart_quantity"> 1 x <span class="cart_amount"> <span
                                                 class="price_symbole">$</span></span>81.00</span>
@@ -111,7 +113,7 @@
                                     <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu">
                                         <ul>
-                                            <li><a class="dropdown-item nav-link nav_item" href="about.html">About
+                                            <li><a class="dropdown-item nav-link nav_item" href="">About
                                                     Us</a></li>
 
                                         </ul>
@@ -146,7 +148,7 @@
                                                 <div class="dropdown-menu">
                                                     <ul>
                                                         <li><a class="dropdown-item nav-link nav_item"
-                                                               href="blog-three-columns.html">3 columns</a></li>
+                                                               href="">3 columns</a></li>
 
                                                     </ul>
                                                 </div>
@@ -180,10 +182,10 @@
                                                 <div class="dropdown-menu">
                                                     <ul>
                                                         <li><a class="dropdown-item nav-link nav_item"
-                                                               href="blog-list-left-sidebar.html">left sidebar</a>
+                                                               href="">left sidebar</a>
                                                         </li>
                                                         <li><a class="dropdown-item nav-link nav_item"
-                                                               href="blog-list-right-sidebar.html">right sidebar</a>
+                                                               href="">right sidebar</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -201,7 +203,7 @@
                                                         <ul>
                                                             <li class="dropdown-header">Shop Page Layout</li>
                                                             <li><a class="dropdown-item nav-link nav_item"
-                                                                   href="shop-list.html">shop List view</a></li>
+                                                                   href="">shop List view</a></li>
 
                                                         </ul>
                                                     </li>
@@ -209,7 +211,7 @@
                                                         <ul>
                                                             <li class="dropdown-header">Other Pages</li>
                                                             <li><a class="dropdown-item nav-link nav_item"
-                                                                   href="shop-cart.html">Cart</a></li>
+                                                                   href="">Cart</a></li>
 
                                                         </ul>
                                                     </li>
@@ -217,7 +219,7 @@
                                                         <ul>
                                                             <li class="dropdown-header">Product Pages</li>
                                                             <li><a class="dropdown-item nav-link nav_item"
-                                                                   href="shop-product-detail.html">Default</a></li>
+                                                                   href="">Default</a></li>
 
                                                         </ul>
                                                     </li>
@@ -228,7 +230,7 @@
                                                     <div class="header_banner_content">
                                                         <div class="shop_banner">
                                                             <div class="banner_img overlay_bg_40">
-                                                                <img src="assets/images/shop_banner3.jpg"
+                                                                <img src=" {{asset('assets')}}/images/shop_banner3.jpg"
                                                                      alt="shop_banner"/>
                                                             </div>
                                                             <div class="shop_bn_content">
@@ -247,7 +249,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a class="nav-link nav_item" href="contact.html">Contact Us</a></li>
+                                <li><a class="nav-link nav_item" href="">Contact Us</a></li>
                             </ul>
                         </div>
 {{--                        <div class="contact_phone contact_support">--}}
@@ -300,10 +302,22 @@
                                 </li>`
 let pro= ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCategory?id=${item['id']}">${item['category_name']} </a></li>`
 
+            let cat2=` <option value="${item['category_name']}">${item['category_name']}</option>`
+
             $('#catList').append(cat)
             $('#productMenu').append(pro)
+            $('#searchCategory').append(cat2)
+
 
         })
+
+    }
+
+user()
+    function user()
+    {
+    let user=sessionStorage.getItem('email')
+        $('#user').text("Welcome, "+user+ "")
 
     }
 </script>

@@ -9,8 +9,8 @@
     <script>
         (async () => {
                 await category()
-                 await  byCategory()
-
+                await byCategory()
+                $(".preloader").delay(50).fadeOut(60).addClass('loaded');
             }
         )()
 

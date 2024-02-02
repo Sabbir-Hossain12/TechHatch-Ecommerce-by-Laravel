@@ -216,7 +216,7 @@
 
         } catch (e) {
             if (e.response.status === 401) {
-                // window.location.href='/'
+                window.location.href='/login'
             }
         }
     }

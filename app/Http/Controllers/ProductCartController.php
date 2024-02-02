@@ -29,7 +29,7 @@ class ProductCartController extends Controller
             } else {
                 $unit_price = $product->price;
             }
-            $total_price = $qty * $unit_price;
+            $total_price = $qty * $product->discount_price;
 
             $data = ProductCart::updateOrCreate(['user_id' => $user_id, 'product_id' => $product_id],
                 [

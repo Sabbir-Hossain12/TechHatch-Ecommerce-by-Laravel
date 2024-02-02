@@ -7,12 +7,15 @@
                         <div class="heading_s1">
                             <h3>Verification</h3>
                         </div>
-                            <div class="form-group mb-3">
-                                <input id="code" type="text" required="" class="form-control" name="email" placeholder="Verification Code">
-                            </div>
-                            <div class="form-group mb-3">
-                                <button onclick="verify()" type="submit" class="btn btn-dark btn-block" name="login">Confirm</button>
-                            </div>
+                        <div class="form-group mb-3">
+                            <input id="code" type="text" required="" class="form-control" name="code"
+                                   placeholder="Verification Code">
+                        </div>
+                        <div class="form-group mb-3">
+                            <button onclick="verify()" type="submit" class="btn btn-dark btn-block" name="login">
+                                Confirm
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -22,29 +25,32 @@
 
 
 <script>
-    async function verify() {
 
-        let code =document.getElementById('code').value;
-        let email=sessionStorage.getItem('email');
-        if (code.length === 0) {
-            alert("Code Required!");
+    async function verify() {
+        let otp = $('#code').val();
+        let email = sessionStorage.getItem('email')
+        if (otp.length === 0) {
+            alert('OTP Required')
         } else {
-            $(".preloader").delay(90).fadeIn(100).removeClass('loaded');
-            let res=await axios.get("/VerifyLogin/"+email+"/"+code);
-            if(res.status===200){
-                    if(sessionStorage.getItem("last_location")){
-                        window.location.href=sessionStorage.getItem("last_location")
-                    }
-                    else{
-                        window.location.href="/"
-                    }
-            }
-            else{
-                $(".preloader").delay(90).fadeOut(100).addClass('loaded');
-                alert("Request Fail")
+            let res = await axios.post('/verifyLogin', {email: email, otp: otp})
+
+            $(".preloader").delay(50).fadeOut(60).removeClass('loaded');
+
+            if (res.data['message'] === 'success') {
+                // sessionStorage.clear()
+                if (sessionStorage.getItem('last_location')) {
+
+                    window.location.href = sessionStorage.getItem('last_location')
+                } else {
+                    window.location.href = '/';
+                }
+            } else {
+                $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+                alert('Failed')
             }
         }
-
     }
+
+
 </script>
 

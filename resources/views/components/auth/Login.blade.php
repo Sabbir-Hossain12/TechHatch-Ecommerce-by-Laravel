@@ -7,12 +7,14 @@
                         <div class="heading_s1">
                             <h3>Login</h3>
                         </div>
-                            <div class="form-group mb-3">
-                                <input id="email" type="text" required="" class="form-control" name="email" placeholder="Your Email">
-                            </div>
-                            <div class="form-group mb-3">
-                                <button onclick="Login()" type="submit" class="btn btn-dark  btn-block" name="login">Next</button>
-                            </div>
+                        <div class="form-group mb-3">
+                            <input id="email" type="text" required="" class="form-control" name="email"
+                                   placeholder="Your Email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <button onclick="Login()" type="submit" class="btn btn-dark  btn-block" name="login">Next
+                            </button>
+                        </div>
 
                     </div>
                 </div>
@@ -23,22 +25,32 @@
 
 
 <script>
+
+
     async function Login() {
-        let email = document.getElementById('email').value;
+        let preloader = $(".preloader");
+
+
+        let email = $('#email').val();
+
         if (email.length === 0) {
-            alert("Email Required!");
+            alert('Enter Email')
         } else {
-            $(".preloader").delay(90).fadeIn(100).removeClass('loaded');
-            let res=await axios.get("/UserLogin/"+email);
-            if(res.status===200){
-                sessionStorage.setItem('email',email);
-                window.location.href="/verify"
+
+            preloader.delay(90).fadeIn(100).removeClass('loaded');
+            let res = await axios.post('/login', {email: email})
+
+            if (res.data['message'] === 'success') {
+                sessionStorage.setItem('email', email)
+                window.location.href = '/verify';
+            } else {
+                preloader.delay(90).fadeOut(100).addClass('loaded');
+                alert('Invalid Email')
             }
-            else{
-                $(".preloader").delay(90).fadeOut(100).addClass('loaded');
-                alert("Something Went Wrong");
-            }
+
         }
 
     }
+
+
 </script>
