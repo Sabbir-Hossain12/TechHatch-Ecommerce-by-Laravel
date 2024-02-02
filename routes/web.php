@@ -25,6 +25,8 @@ Route::get('/productsByCategory',[ProductController::class,'viewProduct']);
 
 Route::view('/productsByBrand','pages.productByBrand-page');
 Route::view('/productDetails','pages.productDetails-page');
+Route::view('/login','pages.login-page');
+Route::view('/verify','pages.verify-page');
 
 
 // *****************************************************************

@@ -191,17 +191,29 @@
 
     async function AddToCart() {
         try {
+            let color = $('#p_color').val();
+            let size = $('#p_size').val();
+            let qty = $('#p_qty').val();
+
             let obj = {
 
                 "product_id": id,
-                "color": $('#p_color').val(),
-                "size": $('#p_size').val(),
-                "qty": $('#p_qty').val()
+                "color": color,
+                "size": size,
+                "qty": qty
 
             }
-            console.log(obj)
+            if (color.length === 0) {
+                alert('Colors Field Required')
+            } else if (size.length === 0) {
+                alert('Size Field Required')
+            } else if (qty === 0) {
+                alert('Quantity Cannot be Zero')
+            } else {
 
-            let res = await axios.post(`/createCart`, obj)
+                let res = await axios.post(`/createCart`, obj)
+            }
+
         } catch (e) {
             if (e.response.status === 401) {
                 // window.location.href='/'
