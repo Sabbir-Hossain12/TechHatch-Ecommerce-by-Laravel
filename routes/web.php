@@ -28,6 +28,7 @@ Route::view('/productDetails','pages.productDetails-page');
 Route::view('/login','pages.login-page');
 Route::view('/verify','pages.verify-page');
 Route::view('/wishlist-page','pages.wishProducts-page');
+Route::view('/cart-page','pages.cartList-page');
 
 
 // *****************************************************************

@@ -71,16 +71,19 @@ let stock='';
         })
 
 
-        async function removeWish(id)
-        {
-            let preloader = $(".preloader");
-            preloader.delay(50).fadeIn(60).removeClass('loaded');
-            let res=await axios.get(`/removeWish/${id}`)
-            preloader.delay(50).fadeOut(60).addClass('loaded');
-            alert('Wish Product Deleted')
+    }
 
-            await wishList()
-        }
+    async function removeWish(id)
+    {
+        let preloader = $(".preloader");
+        preloader.delay(50).fadeIn(60).removeClass('loaded');
+        let res=await axios.get(`/removeWish/${id}`)
+
+
+        await wishList()
+        preloader.delay(50).fadeOut(60).addClass('loaded');
+
+        alert('Wish Product Deleted')
     }
 
 </script>

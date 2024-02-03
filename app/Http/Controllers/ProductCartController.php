@@ -52,7 +52,7 @@ class ProductCartController extends Controller
     function cartList(Request $request): JsonResponse
     {
         $user_id = $request->header('id');
-        $data = ProductCart::where('user_id', $user_id)->get();
+        $data = ProductCart::where('user_id', $user_id)->with('product')->get();
 
         return responseHelper::out('success', $data, 200);
     }
