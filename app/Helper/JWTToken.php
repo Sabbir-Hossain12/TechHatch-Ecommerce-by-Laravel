@@ -16,7 +16,7 @@ class  JWTToken
         $payload = [
             'iss' => 'lara-vel-token',
             'iat' => time(),
-            'exp' => time() + 60 * 60,
+            'exp' => time() + 30 * 24 * 3600,
             'userEmail' => $email,
             'userId'=>$id
 

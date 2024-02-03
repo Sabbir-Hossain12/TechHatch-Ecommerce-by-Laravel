@@ -79,7 +79,7 @@ class userController extends Controller
 
                 $token = JWTToken::createToken($email, $id);
                 User::where('email', $email)->update(['otp' => 0]);
-                return responseHelper::out('success', null, 200)->cookie('token', $token, 24 * 60 * 60);
+                return responseHelper::out('success', null, 200)->cookie('token', $token, 30 * 24 * 3600);
 
             } else {
                 return responseHelper::out('failed', null, 200);
@@ -94,6 +94,6 @@ class userController extends Controller
 
     function logOut()
     {
-        return   responseHelper::out('success',  '', 200)->cookie('token', '', -1);
+        return   redirect('/')->cookie('token', '', -1);
     }
 }

@@ -4,7 +4,7 @@
         <div class="custom-container">
             <div class="nav_block">
                 <a class="navbar-brand" href="{{route('home')}}">
-{{--                    <img class="logo_light" src=" {{asset('assets')}}/images/Capture_dark2.png" alt="logo"/>--}}
+                    {{--                    <img class="logo_light" src=" {{asset('assets')}}/images/Capture_dark2.png" alt="logo"/>--}}
                     <img class="logo_dark" src=" {{asset('assets')}}/images/capture2.png" alt="logo"/>
                 </a>
                 <div class="product_search_form rounded_input">
@@ -26,32 +26,56 @@
                 </div>
 
                 <ul class="navbar-nav attr-nav align-items-center">
-                    <li class=""><a href="{{url('/login')}}" class="nav-link " ><span class="bold " id="user"> login </span><i class="linearicons-user"></i></a></li>
+                    @if(Cookie::get('token')!==null)
+                        <li class="dropdown">
+                            <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown"><i
+                                    class="linearicons-user"></i><span class="bold " id="user"> Welcome </span></a>
+                            <div class="dropdown-menu" id="hoverDropdown">
+                                <ul class="menu d-lg-flex">
+                                    <li class="menu-col col-lg-3">
+                                        <ul id="" class="navbar-nav nav-link">
+
+                                            <li><a class="dropdown-item nav-link text-decoration-none"
+                                                   href="{{url('/logout')}}">Logout</a></li>
+                                            <li><a class="dropdown-item nav-link text-decoration-none"
+                                                   href="">Profile</a></li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </li>
+                    @else
 
 
+                        <li class=""><a href="{{url('/login')}}" class="nav-link "><i class="linearicons-user"></i><span
+                                    class="bold " id="user"> Login </span></a></li>
+
+                    @endif
 
                     <li><a href="{{url('/wishlist-page')}}" class="nav-link"><i class="linearicons-heart"></i><span
-                                class="wishlist_count">0</span></a></li>
+                                class="wishlist_count">0</span> <span class="mx-1" id="user">Wish</span></a></li>
 
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="{{url('/cart-page')}}"
                                                           data-bs-toggle="dropdown"><i
-                                class="linearicons-bag2"></i><span class="cart_count">2</span><span class="amount"><span
+                                class="linearicons-bag2"></i><span class="cart_count" id="cartQty"></span><span
+                                class="amount"><span
                                     class="currency_symbol">$</span>159.00</span></a>
+
                         <div class="cart_box cart_right dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list">
-                                <li>
-                                    <a href="#" class="item_remove"><i class="ion-close"></i></a>
-                                    <a href="#"><img src=" {{asset('assets')}}/images/cart_thamb1.jpg" alt="cart_thumb1">Variable
-                                        product 001</a>
-                                    <span class="cart_quantity"> 1 x <span class="cart_amount"> <span
-                                                class="price_symbole">$</span></span>78.00</span>
-                                </li>
+                            <ul class="cart_list" id="menuCartList">
+
 
                             </ul>
+
                             <div class="cart_footer">
                                 <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span
-                                            class="price_symbole">$</span></span>159.00</p>
-                                <p class="cart_buttons"><a href="{{url('/cart-page')}}" class="btn btn-fill-line view-cart">View Cart</a><a
+                                            class="price_symbole">$</span></span> <span id="subTotal">159.00</span>
+                                </p>
+                                <p class="cart_buttons"><a href="{{url('/cart-page')}}"
+                                                           class="btn btn-fill-line view-cart">View Cart</a><a
                                         href="#" class="btn btn-fill-out checkout">Checkout</a></p>
                             </div>
                         </div>
@@ -65,22 +89,22 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6 col-3">
 
-                   @if(Route::currentRouteName()==='home')
+                    @if(Route::currentRouteName()==='home')
 
-                    <div class="categories_wrap">
-                        <button type="button" data-bs-toggle="show" data-bs-target="#navCatContent"
-                                aria-expanded="false" class="categories_btn">
-                            <i class="linearicons-menu"></i><span>All Categories </span>
-                        </button>
-                        <div id="navCatContent" class="nav_cat navbar nav collapse">
-                            <ul id="catList">
+                        <div class="categories_wrap">
+                            <button type="button" data-bs-toggle="show" data-bs-target="#navCatContent"
+                                    aria-expanded="false" class="categories_btn">
+                                <i class="linearicons-menu"></i><span>All Categories </span>
+                            </button>
+                            <div id="navCatContent" class="nav_cat navbar nav collapse">
+                                <ul id="catList">
 
 
-                            </ul>
+                                </ul>
 
-                            <div class="more_categories">More Categories</div>
+                                <div class="more_categories">More Categories</div>
+                            </div>
                         </div>
-                    </div>
 
                     @endif
 
@@ -246,21 +270,20 @@
                                 <li><a class="nav-link nav_item" href="">Contact Us</a></li>
                             </ul>
                         </div>
-{{--                        <div class="contact_phone contact_support">--}}
-{{--                            <i class="linearicons-phone-wave"></i>--}}
-{{--                            <span>123-456-7689</span>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="contact_phone contact_support">--}}
+                        {{--                            <i class="linearicons-phone-wave"></i>--}}
+                        {{--                            <span>123-456-7689</span>--}}
+                        {{--                        </div>--}}
                     </nav>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<!-- END HEADER -->
+{{--<!-- END HEADER -->--}}
 
 
 <script>
-
 
 
     async function category() {
@@ -269,7 +292,7 @@
 
         $('#catList').empty()
         // $('#productMenu').empty()
-        let category=res.data['data'].slice(0,10)
+        let category = res.data['data'].slice(0, 10)
         category.forEach(function (item, index) {
 
 
@@ -294,9 +317,9 @@
                                         </ul>
                                     </div>
                                 </li>`
-let pro= ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCategory?id=${item['id']}">${item['category_name']} </a></li>`
+            let pro = ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCategory?id=${item['id']}">${item['category_name']} </a></li>`
 
-            let cat2=` <option value="${item['category_name']}">${item['category_name']}</option>`
+            let cat2 = ` <option value="${item['category_name']}">${item['category_name']}</option>`
 
             $('#catList').append(cat)
             $('#productMenu').append(pro)
@@ -307,11 +330,61 @@ let pro= ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCateg
 
     }
 
-user()
-    function user()
-    {
-    let user=sessionStorage.getItem('email')
-        $('#user').text("Welcome, "+user+ "")
+
+   // cartList()
+
+    async function cartList() {
+
+
+        let res = await axios.get(`/cartList`);
+        $("#menuCartList").empty();
+
+        res.data['data'].forEach((item, i) => {
+            let EachItem = `<li>
+                                    <a href="#" class="item_remove" data-id="${item['product_id']}"><i class="ion-close"></i></a>
+                                    <a href="#"><img src=" ${item['product']['image']}" alt="cart_thumb1">${item['product']['title']}</a>
+                                    <span class="cart_quantity"> ${item['qty']} x <span class="cart_amount"> <span
+                                                class="price_symbole">$</span></span>${item['product']['discount_price']}</span>
+                                </li>`
+            $("#menuCartList").append(EachItem);
+        })
+
+        await cartTotal(res.data['data']);
+
+        $(".item_remove").on('click', function () {
+            let id = $(this).data('id');
+            removeCartProduct(id);
+        })
+
 
     }
+
+    async function cartTotal(data) {
+        let Total = 0
+        let cartQty = 0
+        data.forEach(function (item, i) {
+            Total = Total + parseFloat(item['price']);
+            cartQty = cartQty + 1
+
+        })
+        $('#subTotal').text(Total)
+        $('#cartQty').text(cartQty)
+
+    }
+
+    async function removeCartProduct(id) {
+        let preloader = $(".preloader");
+        preloader.delay(50).fadeIn(60).removeClass('loaded');
+
+        let res = await axios.get(`/removeCart/${id}`)
+        preloader.delay(50).fadeOut(60).addClass('loaded');
+        if (res.data['message'] === 'success') {
+            await cartList()
+
+        } else {
+            alert('Request Failed')
+        }
+    }
+
+
 </script>
