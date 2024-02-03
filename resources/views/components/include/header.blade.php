@@ -62,7 +62,7 @@
                                                           data-bs-toggle="dropdown"><i
                                 class="linearicons-bag2"></i><span class="cart_count" id="cartQty"></span><span
                                 class="amount"><span
-                                    class="currency_symbol">$</span>159.00</span></a>
+                                    class="currency_symbol">$</span> <span class='subT'>159.00</span></span></a>
 
                         <div class="cart_box cart_right dropdown-menu dropdown-menu-right">
                             <ul class="cart_list" id="menuCartList">
@@ -72,7 +72,7 @@
 
                             <div class="cart_footer">
                                 <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span
-                                            class="price_symbole">$</span></span> <span id="subTotal">159.00</span>
+                                            class="price_symbole">$</span></span> <span class="subT">159.00</span>
                                 </p>
                                 <p class="cart_buttons"><a href="{{url('/cart-page')}}"
                                                            class="btn btn-fill-line view-cart">View Cart</a><a
@@ -330,10 +330,14 @@
 
     }
 
+    ( async ()=>{
 
-   // cartList()
+     await cartList2()
+        }
 
-    async function cartList() {
+    )()
+
+    async function cartList2() {
 
 
         let res = await axios.get(`/cartList`);
@@ -354,10 +358,9 @@
         $(".item_remove").on('click', function () {
             let id = $(this).data('id');
             removeCartProduct(id);
+            location.reload()
         })
 
-
-    }
 
     async function cartTotal(data) {
         let Total = 0
@@ -365,12 +368,16 @@
         data.forEach(function (item, i) {
             Total = Total + parseFloat(item['price']);
             cartQty = cartQty + 1
+            console.log("Total")
 
         })
-        $('#subTotal').text(Total)
+
+        $('.subT').text(Total)
         $('#cartQty').text(cartQty)
 
     }
+    }
+
 
     async function removeCartProduct(id) {
         let preloader = $(".preloader");
