@@ -27,6 +27,7 @@ Route::view('/productsByBrand','pages.productByBrand-page');
 Route::view('/productDetails','pages.productDetails-page');
 Route::view('/login','pages.login-page');
 Route::view('/verify','pages.verify-page');
+Route::view('/wishlist-page','pages.wishProducts-page');
 
 
 // *****************************************************************
@@ -59,7 +60,7 @@ Route::get('/review/{product_id}', [ProductReviewController::class, 'listReview'
 //product wish
 Route::get('/createWish/{product_id}', [ProductWishlistController::class, 'createWish'])->middleware([tokenMiddleware::class]);
 Route::get('/wishList', [ProductWishlistController::class, 'wishList'])->middleware([tokenMiddleware::class]);
-Route::post('/removeWish/{product_id}', [ProductWishlistController::class, 'removeWish'])->middleware([tokenMiddleware::class]);
+Route::get('/removeWish/{product_id}', [ProductWishlistController::class, 'removeWish'])->middleware([tokenMiddleware::class]);
 //product Cart
 Route::post('/createCart', [ProductCartController::class, 'createCart'])->middleware([tokenMiddleware::class]);
 Route::get('/cartList', [ProductCartController::class, 'cartList'])->middleware([tokenMiddleware::class]);;
