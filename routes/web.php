@@ -30,7 +30,7 @@ Route::view('/verify','pages.verify-page');
 Route::view('/wishlist-page','pages.wishProducts-page');
 Route::view('/cart-page','pages.cartList-page');
 Route::view('/my-account','pages.myAccount-page');
-
+Route::view('/checkout-page','pages.checkout-page');
 // *****************************************************************
 //*********************** Backend API routes************************
 //******************************************************************

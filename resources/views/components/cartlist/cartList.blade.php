@@ -44,7 +44,7 @@
                                         Total: $ <span id="total"></span>
                                     </div>
                                     <div class="col-lg-8 col-md-6  text-start  text-md-end">
-                                        <button onclick="CheckOut()" class="btn btn-line-fill btn-sm" type="submit">Check Out</button>
+                                        <button  class="btn btn-line-fill btn-sm" type="submit"><a href="{{url('/checkout-page')}}" >Check Out</a></button>
                                     </div>
                                 </div>
                             </td>

@@ -28,19 +28,28 @@
                     <div class="dashboard_menu">
                         <ul class="nav nav-tabs flex-column" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false" tabindex="-1"><i class="ti-layout-grid2"></i>Dashboard</a>
+                                <a class="nav-link" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab"
+                                   aria-controls="dashboard" aria-selected="false" tabindex="-1"><i
+                                        class="ti-layout-grid2"></i>Dashboard</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="true"><i class="ti-shopping-cart-full"></i>Orders</a>
+                                <a class="nav-link active" id="orders-tab" data-bs-toggle="tab" href="#orders"
+                                   role="tab" aria-controls="orders" aria-selected="true"><i
+                                        class="ti-shopping-cart-full"></i>Orders</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="false" tabindex="-1"><i class="ti-location-pin"></i>My Address</a>
+                                <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab"
+                                   aria-controls="address" aria-selected="false" tabindex="-1"><i
+                                        class="ti-location-pin"></i>My Address</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="false" tabindex="-1"><i class="ti-id-badge"></i>Account details</a>
+                                <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail"
+                                   role="tab" aria-controls="account-detail" aria-selected="false" tabindex="-1"><i
+                                        class="ti-id-badge"></i>Account details</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="login.html" aria-selected="false" tabindex="-1" role="tab"><i class="ti-lock"></i>Logout</a>
+                                <a class="nav-link" href="login.html" aria-selected="false" tabindex="-1" role="tab"><i
+                                        class="ti-lock"></i>Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -53,7 +62,13 @@
                                     <h3>Dashboard</h3>
                                 </div>
                                 <div class="card-body">
-                                    <p>From your account dashboard. you can easily check &amp; view your <a href="javascript:;" onclick="$('#orders-tab').trigger('click')">recent orders</a>, manage your <a href="javascript:;" onclick="$('#address-tab').trigger('click')">shipping and billing addresses</a> and <a href="javascript:;" onclick="$('#account-detail-tab').trigger('click')">edit your password and account details.</a></p>
+                                    <p>From your account dashboard. you can easily check &amp; view your <a
+                                            href="javascript:;" onclick="$('#orders-tab').trigger('click')">recent
+                                            orders</a>, manage your <a href="javascript:;"
+                                                                       onclick="$('#address-tab').trigger('click')">shipping
+                                            and billing addresses</a> and <a href="javascript:;"
+                                                                             onclick="$('#account-detail-tab').trigger('click')">edit
+                                            your password and account details.</a></p>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +118,8 @@
                                             <h3>Billing Address</h3>
                                         </div>
                                         <div class="card-body">
-                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212</address>
+                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212
+                                            </address>
                                             <p>New York</p>
                                             <a href="#" class="btn btn-fill-out">Edit</a>
                                         </div>
@@ -115,7 +131,8 @@
                                             <h3>Shipping Address</h3>
                                         </div>
                                         <div class="card-body">
-                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212</address>
+                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212
+                                            </address>
                                             <p>New York</p>
                                             <a href="#" class="btn btn-fill-out">Edit</a>
                                         </div>
@@ -123,48 +140,60 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
+                        <div class="tab-pane fade" id="account-detail" role="tabpanel"
+                             aria-labelledby="account-detail-tab">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3>Account Details</h3>
+                                    <h3>Customer Details</h3>
                                 </div>
                                 <div class="card-body">
-                                    <p>Already have an account? <a href="#">Log in instead!</a></p>
-                                    <form method="post" name="enq">
-                                        <div class="row">
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>First Name <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="name" type="text">
-                                            </div>
-                                            <div class="form-group col-md-6 mb-3">
-                                                <label>Last Name <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="phone">
-                                            </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Display Name <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="dname" type="text">
-                                            </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Email Address <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="email" type="email">
-                                            </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Current Password <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="password" type="password">
-                                            </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>New Password <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="npassword" type="password">
-                                            </div>
-                                            <div class="form-group col-md-12 mb-3">
-                                                <label>Confirm Password <span class="required">*</span></label>
-                                                <input required="" class="form-control" name="cpassword" type="password">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <button type="submit" class="btn btn-fill-out" name="submit" value="Submit">Save</button>
-                                            </div>
+                                    {{--                                    <p>Already have an account? <a href="#">Log in instead!</a></p>--}}
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6 mb-3">
+                                            <label>Name <span class="required">*</span></label>
+                                            <input required="" class="form-control" name="name" id="name" type="text">
                                         </div>
-                                    </form>
+                                        <div class="form-group col-md-6 mb-3">
+                                            <label>Country <span class="required">*</span></label>
+                                            <input required="" class="form-control" name="phone" id="country"
+                                                   value="Bangladesh">
+                                        </div>
+                                        <div class="form-group col-md-6 mb-3">
+                                            <label>City<span class="required">*</span></label>
+                                            <input required="" class="form-control" name="dname" id="city" type="text">
+                                        </div>
+                                        <div class="form-group col-md-6 mb-3">
+                                            <label>State <span class="required">*</span></label>
+                                            <input required="" class="form-control" name="email" id="state" type="text">
+                                        </div>
+                                        <div class="form-group col-md-6 mb-3">
+                                            <label>Postcode<span class="required">*</span></label>
+                                            <input required="" class="form-control" name="password" id="postcode"
+                                                   type="text">
+                                        </div>
+                                        <div class="form-group col-md-6 mb-3">
+                                            <label>phone<span class="required">*</span></label>
+                                            <input required="" class="form-control" name="npassword" id="phone"
+                                                   type="text">
+                                        </div>
+                                        <div class="form-group col-md-12 mb-3">
+                                            <label>Email <span class="required">*</span></label>
+                                            <input required="" class="form-control" name="cpassword" id="email"
+                                                   type="email">
+                                        </div>
+                                        <div class="form-group col-md-12 mb-3">
+                                            <label>Address <span class="required">*</span></label>
+                                            <input required="" class="form-control" name="cpassword" id="add"
+                                                   type="text">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button class="btn btn-fill-out" name="submit" value="Submit"
+                                                    onclick="createProfile()">Save
+                                            </button>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -176,3 +205,94 @@
     <!-- END SECTION SHOP -->
 
 </div>
+
+<script>
+
+    async function createProfile() {
+        let name = $('#name').val();
+        let phone = $('#phone').val();
+        let state = $('#state').val();
+        let country = $('#country').val();
+        let email = $('#email').val();
+        let city = $('#city').val();
+        let postcode = $('#postcode').val();
+        let address = $('#add').val();
+
+        let obj =
+
+            {
+                "cus_name": name,
+                "cus_add": address,
+                "cus_city": city,
+                "cus_state": state,
+                "cus_postcode": postcode,
+                "cus_country": country,
+                "cus_phone": phone,
+                "cus_fax": "1234",
+                "ship_name": name,
+                "ship_add": address,
+                "ship_city": city,
+                "ship_state": state,
+                "ship_postcode": postcode,
+                "ship_country": country,
+                "ship_phone": phone
+
+            }
+
+
+        if (name.length === 0) {
+            alert('Name Required')
+        } else if (phone.length === 0) {
+            alert('Phone Required')
+        } else if (state.length === 0) {
+            alert('State Required')
+        } else if (country.length === 0) {
+            alert('Country Required')
+        } else if (email.length === 0) {
+            alert('Email Required')
+        } else if (city.length === 0) {
+            alert('City Required')
+        } else if (postcode.length === 0) {
+            alert('Postcode Required')
+        } else if (address.length === 0) {
+            alert('Address Required')
+        } else {
+            $(".preloader").delay(50).fadeIn(60).removeClass('loaded');
+            let res = await axios.post('/createProfile', obj)
+            $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+
+            if (res.status === 201) {
+                alert('Profile Created!')
+            }
+        }
+
+
+    }
+
+    showProfileInfo()
+
+    async function showProfileInfo() {
+        $(".preloader").delay(50).fadeIn(60).removeClass('loaded');
+        let res = await axios.get('/profile')
+        $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+
+        if (res.data['message'] === 'success') {
+            $('#name').val(res.data['data']['cus_name']);
+            $('#phone').val(res.data['data']['cus_phone']);
+            $('#state').val(res.data['data']['cus_state']);
+            $('#country').val(res.data['data']['cus_country']);
+            $('#email').val(res.data['data']['user']['email']);
+            $('#city').val(res.data['data']['cus_city']);
+            $('#postcode').val(res.data['data']['cus_postcode']);
+            $('#add').val(res.data['data']['cus_add']);
+        }
+        else
+        {
+            alert('invalid request')
+        }
+
+
+    }
+
+
+</script>

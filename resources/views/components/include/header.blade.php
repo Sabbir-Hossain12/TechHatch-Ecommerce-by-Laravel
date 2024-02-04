@@ -80,7 +80,7 @@
                                 </p>
                                 <p class="cart_buttons"><a href="@if(Cookie::get('token')!==null){{url('/cart-page')}} @else {{url('/login')}}  @endif"
                                                            class="btn btn-fill-line view-cart">View Cart</a><a
-                                        href="@if(Cookie::get('token')!==null){{url('/cart-page')}} @else {{url('/login')}} @endif" class="btn btn-fill-out checkout">Checkout</a></p>
+                                        href="@if(Cookie::get('token')!==null){{url('/checkout-page')}}@else {{url('/login')}} @endif" class="btn btn-fill-out checkout">Checkout</a></p>
                             </div>
                         </div>
                     </li>
