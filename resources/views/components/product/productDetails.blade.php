@@ -149,7 +149,6 @@
 
         let res = await axios.get(`/productsDetails/${id}`)
 
-        console.log(res.data['data']['img1'])
 
         $('#product_img1').attr('src', res.data['data']['img1'])
         $('#img1').attr('src', res.data['data']['img1'])
@@ -166,7 +165,9 @@
 
             let option = `<option value="${item}">${item}</option>`
             $('#p_size').append(option)
+
         })
+
 
         let color = res.data['data']['color'].split(',')
         color.forEach(function (item, i) {
@@ -176,6 +177,25 @@
         })
 
         $('#p_details').text(res.data['data']['des'])
+
+        // 4 images Shuffle click
+        $('#img1').on('click',function ()
+        {
+            $('#product_img1').attr('src',res.data['data']['img1'])
+        })
+        $('#img2').on('click',function ()
+        {
+            $('#product_img1').attr('src',res.data['data']['img2'])
+        })
+        $('#img3').on('click',function ()
+        {
+            $('#product_img1').attr('src',res.data['data']['img3'])
+        })
+
+        $('#img4').on('click',function ()
+        {
+            $('#product_img1').attr('src',res.data['data']['img4'])
+        })
     }
 
     async function AddToWishList() {

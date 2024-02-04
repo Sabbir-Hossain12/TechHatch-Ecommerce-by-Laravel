@@ -55,14 +55,18 @@
 
                     @endif
 
-                    <li><a href="{{url('/wishlist-page')}}" class="nav-link"><i class="linearicons-heart"></i><span
+
+                        @if(Cookie::get('token')!==null)
+
+
+                    <li><a href=" @if(Cookie::get('token')!==null){{url('/wishlist-page')}} @else {{url('/login')}}  @endif" class="nav-link"><i class="linearicons-heart"></i><span
                                 class="wishlist_count">0</span> <span class="mx-1" id="user">Wish</span></a></li>
 
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href="{{url('/cart-page')}}"
+                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href=""
                                                           data-bs-toggle="dropdown"><i
                                 class="linearicons-bag2"></i><span class="cart_count" id="cartQty"></span><span
                                 class="amount"><span
-                                    class="currency_symbol">$</span> <span class='subT'>159.00</span></span></a>
+                                    class="currency_symbol">$</span> <span class='subT'>0</span></span></a>
 
                         <div class="cart_box cart_right dropdown-menu dropdown-menu-right">
                             <ul class="cart_list" id="menuCartList">
@@ -72,14 +76,15 @@
 
                             <div class="cart_footer">
                                 <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span
-                                            class="price_symbole">$</span></span> <span class="subT">159.00</span>
+                                            class="price_symbole">$</span></span> <span class="subT">0</span>
                                 </p>
-                                <p class="cart_buttons"><a href="{{url('/cart-page')}}"
+                                <p class="cart_buttons"><a href="@if(Cookie::get('token')!==null){{url('/cart-page')}} @else {{url('/login')}}  @endif"
                                                            class="btn btn-fill-line view-cart">View Cart</a><a
-                                        href="#" class="btn btn-fill-out checkout">Checkout</a></p>
+                                        href="@if(Cookie::get('token')!==null){{url('/cart-page')}} @else {{url('/login')}} @endif" class="btn btn-fill-out checkout">Checkout</a></p>
                             </div>
                         </div>
                     </li>
+                        @endif
                 </ul>
             </div>
         </div>
@@ -286,12 +291,14 @@
 <script>
 
 
+
     async function category() {
 
         let res = await axios.get('/categories')
 
         $('#catList').empty()
         // $('#productMenu').empty()
+
         let category = res.data['data'].slice(0, 10)
         category.forEach(function (item, index) {
 
@@ -330,11 +337,13 @@
 
     }
 
-    ( async ()=>{
+    ( async ()=> {
 
-     await cartList2()
+
+            await cartList2()
+
+
         }
-
     )()
 
     async function cartList2() {
