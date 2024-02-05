@@ -31,6 +31,7 @@ Route::view('/wishlist-page','pages.wishProducts-page');
 Route::view('/cart-page','pages.cartList-page');
 Route::view('/my-account','pages.myAccount-page');
 Route::view('/checkout-page','pages.checkout-page');
+Route::view('/order-completed','pages.order-completed-page');
 // *****************************************************************
 //*********************** Backend API routes************************
 //******************************************************************
@@ -71,3 +72,7 @@ Route::post('/createInvoice', [InvoiceController::class, 'createInvoice'])->midd
 Route::get('/invoiceList', [InvoiceController::class, 'invoiceList'])->middleware([tokenMiddleware::class]);
 Route::get('/invoiceProductList/{invoice_id}', [InvoiceController::class, 'invoiceProductList'])->middleware([tokenMiddleware::class]);
 
+//payment
+Route::post("/PaymentSuccess",[InvoiceController::class,'PaymentSuccess']);
+Route::post("/PaymentCancel",[InvoiceController::class,'PaymentCancel']);
+Route::post("/PaymentFail",[InvoiceController::class,'PaymentFail']);

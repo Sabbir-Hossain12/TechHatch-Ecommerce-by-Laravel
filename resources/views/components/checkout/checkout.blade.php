@@ -390,26 +390,30 @@
 
             if (val === 'cod') {
 
-
-                $(".preloader").delay(50).fadeIn(60).removeClass('loaded');
+                let preloader = $(".preloader");
+                preloader.delay(50).fadeIn(60).removeClass('loaded');
                 let res1 = await axios.post('/createProfile', obj)
-                $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+                preloader.delay(50).fadeOut(60).addClass('loaded');
 
-                if (res1.status === 201) {
-                    alert('Profile Created!')
-                }
 
 
                 // invoice and invoice products create
-                let preloader = $(".preloader");
+
                 preloader.delay(50).fadeIn(60).removeClass('loaded');
                 let res2 = await axios.post('/createInvoice');
                 preloader.delay(50).fadeOut(60).addClass('loaded');
 
                 if (res2.data['message'] === 'success') {
                     alert('success')
+
+                    window.location.href='/order-completed';
                 }
 
+            }
+
+            if (val==='online')
+            {
+                
             }
 
         }
