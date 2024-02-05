@@ -38,7 +38,7 @@
                                             <li><a class="dropdown-item nav-link text-decoration-none"
                                                    href="{{url('/logout')}}">Logout</a></li>
                                             <li><a class="dropdown-item nav-link text-decoration-none"
-                                                   href="">Profile</a></li>
+                                                   href="{{url('/my-account')}}">Account</a></li>
 
                                         </ul>
                                     </li>
@@ -377,7 +377,7 @@
         data.forEach(function (item, i) {
             Total = Total + parseFloat(item['price']);
             cartQty = cartQty + 1
-            console.log("Total")
+
 
         })
 

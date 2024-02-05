@@ -7,9 +7,17 @@
     <script>
 
 
-        $(".preloader").delay(50).fadeOut(60).addClass('loaded');
 
 
+        (async () => {
+
+            await category()
+            await showProfileOnCheckout()
+            await cartListOnCheckout()
+            $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+
+
+        })()
 
     </script>
 
