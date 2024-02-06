@@ -330,15 +330,43 @@
                                                 <td>${item['payment_status']}</td>
                                                 <td>${item['delivery_status']}</td>
                                                 <td>${item['payable']}</td>
-                                                <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
+                                                <td><button href="#" data-id="${item['id']}" class="btn btn-fill-out btn-sm detailBtn">View</button></td>
 
 
                                             </tr>`
 
             $('#orderList').append(eachProduct)
+
+            $('.detailBtn').on('click',async function ()
+            {
+                let id= $(this).data('id');
+              await  showOrderDetails(id);
+
+            })
+
         })
 
 
+    }
+
+    async function showOrderDetails(id)
+    {
+        let res= await axios.get(`/invoiceProductList/${id}`)
+        if (res.data['message']==='success')
+        {
+            $("#InvoiceProductModal").modal('show');
+            $("#productList").empty();
+            res.data['data'].forEach(function (ite,ind)
+            {
+                let each= `  <tr>
+                                                <td>${ite['product']['title']}</td>
+                                                <td>${ite['qty']}</td>
+                                                <td>${ite['sale_price']}</td>
+                                            </tr>`
+
+                $('#productList').append(each)
+            })
+        }
     }
 
 
