@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     @include('components.home.banner')
     @include('components.home.TopCategories')
     @include('components.home.exclusive')
@@ -22,7 +21,7 @@
             await productByRemark('sellers', 'sellersItem')
             await productByRemark('featured', 'featuredItem')
             await productByRemark('special', 'SpecialItem')
-                await  TopBrands();
+            await TopBrands();
 
         })()
 

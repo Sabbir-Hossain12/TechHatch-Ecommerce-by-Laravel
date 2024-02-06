@@ -4,7 +4,7 @@
             <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
                 <div class="product-image">
                     <div class="product_img_box">
-                        <img id="product_img1" class="w-100" src="">
+                        <img id="product_img1" class="w-100" src="https://photo.teamrabbil.com/images/2023/08/15/macbooks-2048px-2349.md.jpeg">
                     </div>
                     <div class="row p-2">
                         <a href="#" class="col-3 product_img_box p-1">
@@ -147,61 +147,67 @@
     async function productDetails() {
 
 
-        let res = await axios.get(`/productsDetails/${id}`)
+        try {
 
 
-        $('#product_img1').attr('src', res.data['data']['img1'])
-        $('#img1').attr('src', res.data['data']['img1'])
-        $('#img2').attr('src', res.data['data']['img2'])
-        $('#img3').attr('src', res.data['data']['img3'])
-        $('#img4').attr('src', res.data['data']['img4'])
-
-        $('#p_title').text(res.data['data']['product']['title'])
-        $('#p_price').text(res.data['data']['product']['discount_price'])
-        $('#p_des').text(res.data['data']['product']['short_des'])
-
-        let size = res.data['data']['size'].split(',')
-        size.forEach(function (item, i) {
-
-            let option = `<option value="${item}">${item}</option>`
-            $('#p_size').append(option)
-
-        })
+            let res = await axios.get(`/productsDetails/${id}`)
 
 
-        let color = res.data['data']['color'].split(',')
-        color.forEach(function (item, i) {
+            $('#product_img1').attr('src', res.data['data']['img1'])
+            $('#img1').attr('src', res.data['data']['img1'])
+            $('#img2').attr('src', res.data['data']['img2'])
+            $('#img3').attr('src', res.data['data']['img3'])
+            $('#img4').attr('src', res.data['data']['img4'])
 
-            let option = `<option value="${item}">${item}</option>`
-            $('#p_color').append(option)
-        })
+            $('#p_title').text(res.data['data']['product']['title'])
+            $('#p_price').text(res.data['data']['product']['discount_price'])
+            $('#p_des').text(res.data['data']['product']['short_des'])
 
-        $('#p_details').text(res.data['data']['des'])
+            let size = res.data['data']['size'].split(',')
+            size.forEach(function (item, i) {
 
-        // 4 images Shuffle click
-        $('#img1').on('click',function ()
-        {
-            $('#product_img1').attr('src',res.data['data']['img1'])
-        })
-        $('#img2').on('click',function ()
-        {
-            $('#product_img1').attr('src',res.data['data']['img2'])
-        })
-        $('#img3').on('click',function ()
-        {
-            $('#product_img1').attr('src',res.data['data']['img3'])
-        })
+                let option = `<option value="${item}">${item}</option>`
+                $('#p_size').append(option)
 
-        $('#img4').on('click',function ()
-        {
-            $('#product_img1').attr('src',res.data['data']['img4'])
-        })
+            })
+
+
+            let color = res.data['data']['color'].split(',')
+            color.forEach(function (item, i) {
+
+                let option = `<option value="${item}">${item}</option>`
+                $('#p_color').append(option)
+            })
+
+            $('#p_details').text(res.data['data']['des'])
+
+            // 4 images Shuffle click
+            $('#img1').on('click', function () {
+                $('#product_img1').attr('src', res.data['data']['img1'])
+            })
+            $('#img2').on('click', function () {
+                $('#product_img1').attr('src', res.data['data']['img2'])
+            })
+            $('#img3').on('click', function () {
+                $('#product_img1').attr('src', res.data['data']['img3'])
+            })
+
+            $('#img4').on('click', function () {
+                $('#product_img1').attr('src', res.data['data']['img4'])
+            })
+        }
+        catch (e) {
+
+            alert('Products not found')
+        }
     }
 
     async function AddToWishList() {
         try {
-
+            let preloader = $(".preloader");
+            preloader.delay(50).fadeIn(60).removeClass('loaded');
             let res = await axios.get(`/createWish/${id}`)
+            preloader.delay(50).fadeOut(60).addClass('loaded');
         } catch (e) {
             if (e.response.status === 401) {
                 window.location.href = '/'
@@ -231,7 +237,13 @@
                 alert('Quantity Cannot be Zero')
             } else {
 
+                let preloader = $(".preloader");
+                preloader.delay(50).fadeIn(60).removeClass('loaded');
                 let res = await axios.post(`/createCart`, obj)
+                preloader.delay(50).fadeOut(60).addClass('loaded');
+
+                alert('product added to cart! ')
+                await cartList2()
             }
 
         } catch (e) {

@@ -227,6 +227,25 @@
 
 </div>
 
+<div class="modal fade" data-backdrop="static" id="paymentMethodModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Pay Now</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tbody id="paymentList">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 
 
@@ -413,7 +432,33 @@
 
             if (val==='online')
             {
-                
+                $(".preloader").delay(90).fadeIn(100).removeClass('loaded');
+
+                $("#paymentList").empty();
+
+                let res=await axios.post("/createInvoice");
+
+                $(".preloader").delay(90).fadeOut(100).addClass('loaded');
+
+
+                if(res.status===200) {
+
+                    $("#paymentMethodModal").modal('show');
+
+                    res.data['data'][0]['paymentMethod'].forEach((item,i)=>{
+                        let EachItem=`<tr>
+                                <td><img class="w-50" src=${item['logo']} alt="product"></td>
+                                <td><p>${item['name']}</p></td>
+                                <td><a class="btn btn-danger btn-sm" href="${item['redirectGatewayURL']}">Pay</a></td>
+                            </tr>`
+                        $("#paymentList").append(EachItem);
+                    })
+
+                }
+                else{
+                    alert("Request Fail");
+                }
+
             }
 
         }

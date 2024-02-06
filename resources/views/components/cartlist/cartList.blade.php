@@ -109,6 +109,7 @@
         if(res.data['message']==='success')
         {
             await cartList()
+            await cartList2()
 
         }
         else

@@ -367,7 +367,7 @@
         $(".item_remove").on('click', function () {
             let id = $(this).data('id');
             removeCartProduct(id);
-            location.reload()
+            // location.reload()
         })
 
 
@@ -395,7 +395,7 @@
         let res = await axios.get(`/removeCart/${id}`)
         preloader.delay(50).fadeOut(60).addClass('loaded');
         if (res.data['message'] === 'success') {
-            await cartList()
+            await cartList2()
 
         } else {
             alert('Request Failed')
