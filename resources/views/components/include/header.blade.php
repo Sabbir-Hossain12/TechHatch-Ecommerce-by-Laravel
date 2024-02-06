@@ -289,6 +289,14 @@
 
 
 <script>
+    ( async ()=> {
+
+            await wishListCount()
+            await cartList2()
+
+
+        }
+    )()
 
 
 
@@ -337,14 +345,6 @@
 
     }
 
-    ( async ()=> {
-
-            await wishListCount()
-            await cartList2()
-
-
-        }
-    )()
 
     async function cartList2() {
 

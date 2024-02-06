@@ -6,9 +6,17 @@
 
     <script>
 
+        (async () => {
 
-        $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+                await category()
+                await showProfileInfo()
+                await  orderList()
 
+                $(".preloader").delay(50).fadeOut(60).addClass('loaded');
+            }
+
+
+        )()
 
 
     </script>

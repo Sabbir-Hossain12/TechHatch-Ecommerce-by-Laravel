@@ -22,9 +22,9 @@
 
     <!-- START SECTION SHOP -->
     <div class="section mt-4 pt-4">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-md-4">
+                <div class="col-lg-2 col-md-4">
                     <div class="dashboard_menu">
                         <ul class="nav nav-tabs flex-column" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -48,13 +48,13 @@
                                         class="ti-id-badge"></i>Account details</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="login.html" aria-selected="false" tabindex="-1" role="tab"><i
+                                <a class="nav-link" href="{{url('/logout')}}" aria-selected="false" tabindex="-1" role="tab"><i
                                         class="ti-lock"></i>Logout</a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-8">
+                <div class="col-lg-10 col-md-8">
                     <div class="tab-content dashboard_content">
                         <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                             <div class="card">
@@ -79,67 +79,88 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table">
+                                        <table class="table table-bordered">
                                             <thead>
                                             <tr>
-                                                <th>Order</th>
+                                                <th>Order ID</th>
+                                                <th>Shipping Details</th>
                                                 <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Total</th>
+                                                <th>Payment Status</th>
+                                                <th>Delivery Status</th>
+                                                <th>Total(including Vat)</th>
                                                 <th>Actions</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>#1234</td>
-                                                <td>March 15, 2020</td>
-                                                <td>Processing</td>
-                                                <td>$78.00 for 1 item</td>
-                                                <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>#2366</td>
-                                                <td>June 20, 2020</td>
-                                                <td>Completed</td>
-                                                <td>$81.00 for 1 item</td>
-                                                <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
-                                            </tr>
+                                            <tbody id="orderList" class="colsp">
+
+
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="card mb-3 mb-lg-0">
-                                        <div class="card-header">
-                                            <h3>Billing Address</h3>
-                                        </div>
-                                        <div class="card-body">
-                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212
-                                            </address>
-                                            <p>New York</p>
-                                            <a href="#" class="btn btn-fill-out">Edit</a>
-                                        </div>
+
+{{--               Order Details Modal         --}}
+                        <div class="modal" id="InvoiceProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title fs-6" id="exampleModalLabel">Products</h6>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h3>Shipping Address</h3>
-                                        </div>
-                                        <div class="card-body">
-                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212
-                                            </address>
-                                            <p>New York</p>
-                                            <a href="#" class="btn btn-fill-out">Edit</a>
-                                        </div>
+                                    <div class="modal-body">
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Quantity</th>
+                                                <th>Price</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="productList">
+
+                                            </tbody>
+                                        </table>
+
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+{{--                        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="card mb-3 mb-lg-0">--}}
+{{--                                        <div class="card-header">--}}
+{{--                                            <h3>Billing Address</h3>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212--}}
+{{--                                            </address>--}}
+{{--                                            <p>New York</p>--}}
+{{--                                            <a href="#" class="btn btn-fill-out">Edit</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-6">--}}
+{{--                                    <div class="card">--}}
+{{--                                        <div class="card-header">--}}
+{{--                                            <h3>Shipping Address</h3>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <address>House #15<br>Road #1<br>Block #C <br>Angali <br> Vedora <br>1212--}}
+{{--                                            </address>--}}
+{{--                                            <p>New York</p>--}}
+{{--                                            <a href="#" class="btn btn-fill-out">Edit</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="tab-pane fade" id="account-detail" role="tabpanel"
                              aria-labelledby="account-detail-tab">
                             <div class="card">
@@ -147,7 +168,7 @@
                                     <h3>Customer Details</h3>
                                 </div>
                                 <div class="card-body">
-                                    {{--                                    <p>Already have an account? <a href="#">Log in instead!</a></p>--}}
+                                    {{--    <p>Already have an account? <a href="#">Log in instead!</a></p>--}}
 
                                     <div class="row">
                                         <div class="form-group col-md-6 mb-3">
@@ -269,7 +290,7 @@
 
     }
 
-    showProfileInfo()
+
 
     async function showProfileInfo() {
         $(".preloader").delay(50).fadeIn(60).removeClass('loaded');
@@ -290,6 +311,32 @@
         {
             alert('invalid request')
         }
+
+
+    }
+
+    async function orderList()
+    {
+
+        let res=await axios.get('/invoiceList')
+
+        $('#orderList').empty()
+        res.data['data'].forEach(function (item,i)
+        {
+            let eachProduct=`  <tr aria-colspan="5">
+                                                <td>${item['id']}</td>
+                                                <td>${item['ship_details']}</td>
+                                                <td>${item['created_at']}</td>
+                                                <td>${item['payment_status']}</td>
+                                                <td>${item['delivery_status']}</td>
+                                                <td>${item['payable']}</td>
+                                                <td><a href="#" class="btn btn-fill-out btn-sm">View</a></td>
+
+
+                                            </tr>`
+
+            $('#orderList').append(eachProduct)
+        })
 
 
     }
