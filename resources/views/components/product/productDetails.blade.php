@@ -208,6 +208,7 @@
             preloader.delay(50).fadeIn(60).removeClass('loaded');
             let res = await axios.get(`/createWish/${id}`)
             preloader.delay(50).fadeOut(60).addClass('loaded');
+           await wishListCount()
         } catch (e) {
             if (e.response.status === 401) {
                 window.location.href = '/'

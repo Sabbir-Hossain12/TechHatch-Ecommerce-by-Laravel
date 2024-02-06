@@ -60,7 +60,7 @@
 
 
                     <li><a href=" @if(Cookie::get('token')!==null){{url('/wishlist-page')}} @else {{url('/login')}}  @endif" class="nav-link"><i class="linearicons-heart"></i><span
-                                class="wishlist_count">0</span> <span class="mx-1" id="user">Wish</span></a></li>
+                                class="wishlist_count" id="wishlistCount">0</span> <span class="mx-1" id="user">Wish</span></a></li>
 
                     <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href=""
                                                           data-bs-toggle="dropdown"><i
@@ -339,7 +339,7 @@
 
     ( async ()=> {
 
-
+            await wishListCount()
             await cartList2()
 
 
@@ -403,4 +403,26 @@
     }
 
 
+    async function wishListCount()
+    {
+
+
+        let res= await axios.get('/wishList')
+
+
+        let totalWish=0
+        if(res.data['data']!==null)
+        {
+            res.data['data'].forEach(function (item,i)
+            {
+                totalWish=totalWish+1
+            })
+
+            $('#wishlistCount').text(totalWish)
+
+
+        }
+
+
+    }
 </script>

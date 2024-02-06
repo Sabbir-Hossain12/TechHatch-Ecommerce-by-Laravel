@@ -75,13 +75,12 @@ let stock='';
 
     async function removeWish(id)
     {
-        let preloader = $(".preloader");
-        preloader.delay(50).fadeIn(60).removeClass('loaded');
+
+
         let res=await axios.get(`/removeWish/${id}`)
 
-
         await wishList()
-        preloader.delay(50).fadeOut(60).addClass('loaded');
+        await wishListCount()
 
         alert('Wish Product Deleted')
     }
