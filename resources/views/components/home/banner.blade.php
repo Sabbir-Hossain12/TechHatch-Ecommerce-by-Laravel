@@ -66,7 +66,7 @@
                     <h5 class="mb-3 staggered-animation font-weight-light text-light" data-animation="slideInLeft" data-animation-delay="0.5s">${item['short_des']}</h5>
                     <h2 class="staggered-animation text-light" data-animation="slideInLeft" data-animation-delay="1s">${item['title']}</h2>
                     <h4 class="staggered-animation mb-4 product-price text-light" data-animation="slideInLeft" data-animation-delay="1.2s"><span class="price">$${item['price']}</span><del>$55.25</del></h4>
-                    <a class="btn btn-fill-out btn-radius staggered-animation text-uppercase" href="" data-animation="slideInLeft" data-animation-delay="1.5s">Shop Now</a>
+                    <a class="btn btn-fill-out btn-radius staggered-animation text-uppercase" href="/productDetails?id=${item['product_id']}" data-animation="slideInLeft" data-animation-delay="1.5s">Shop Now</a>
                 </div>
             </div>
         </div>
