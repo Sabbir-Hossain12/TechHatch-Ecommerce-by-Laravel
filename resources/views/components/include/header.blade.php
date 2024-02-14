@@ -8,21 +8,23 @@
                     <img class="logo_dark" src=" {{asset('assets')}}/images/capture2.png" alt="logo"/>
                 </a>
                 <div class="product_search_form rounded_input">
-                    <form>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="custom_select">
-                                    <select class="first_null" id="searchCategory">
-                                        <option value="">All Category</option>
+
+                    <div class="input-group">
+                        {{--                            <div class="input-group-prepend">--}}
+                        {{--                                <div class="custom_select">--}}
+                        {{--                                    <select class="first_null" id="searchCategory">--}}
+                        {{--                                        <option value="">All Category</option>--}}
 
 
-                                    </select>
-                                </div>
-                            </div>
-                            <input class="form-control" placeholder="Search Product..." required="" type="text">
-                            <button type="submit" class="search_btn2"><i class="fa fa-search"></i></button>
-                        </div>
-                    </form>
+                        {{--                                    </select>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        <input class="form-control" placeholder="Search Product..." required="" type="text"
+                               id="searchName">
+                        <button type="button" onclick="searchProduct()" class="search_btn2"><i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
                 </div>
 
                 <ul class="navbar-nav attr-nav align-items-center">
@@ -49,42 +51,46 @@
                         </li>
                     @else
 
-
                         <li class=""><a href="{{url('/login')}}" class="nav-link "><i class="linearicons-user"></i><span
                                     class="bold " id="user"> Login </span></a></li>
 
                     @endif
 
 
-                        @if(Cookie::get('token')!==null)
+                    @if(Cookie::get('token')!==null)
+
+                        <li>
+                            <a href=" @if(Cookie::get('token')!==null){{url('/wishlist-page')}} @else {{url('/login')}}  @endif"
+                               class="nav-link"><i class="linearicons-heart"></i><span
+                                    class="wishlist_count" id="wishlistCount">0</span> <span class="mx-1"
+                                                                                             id="user">Wish</span></a>
+                        </li>
+
+                        <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href=""
+                                                              data-bs-toggle="dropdown"><i
+                                    class="linearicons-bag2"></i><span class="cart_count" id="cartQty"></span><span
+                                    class="amount"><span
+                                        class="currency_symbol">$</span> <span class='subT'>0</span></span></a>
+
+                            <div class="cart_box cart_right dropdown-menu dropdown-menu-right">
+                                <ul class="cart_list" id="menuCartList">
 
 
-                    <li><a href=" @if(Cookie::get('token')!==null){{url('/wishlist-page')}} @else {{url('/login')}}  @endif" class="nav-link"><i class="linearicons-heart"></i><span
-                                class="wishlist_count" id="wishlistCount">0</span> <span class="mx-1" id="user">Wish</span></a></li>
+                                </ul>
 
-                    <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href=""
-                                                          data-bs-toggle="dropdown"><i
-                                class="linearicons-bag2"></i><span class="cart_count" id="cartQty"></span><span
-                                class="amount"><span
-                                    class="currency_symbol">$</span> <span class='subT'>0</span></span></a>
-
-                        <div class="cart_box cart_right dropdown-menu dropdown-menu-right">
-                            <ul class="cart_list" id="menuCartList">
-
-
-                            </ul>
-
-                            <div class="cart_footer">
-                                <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span
-                                            class="price_symbole">$</span></span> <span class="subT">0</span>
-                                </p>
-                                <p class="cart_buttons"><a href="@if(Cookie::get('token')!==null){{url('/cart-page')}} @else {{url('/login')}}  @endif"
-                                                           class="btn btn-fill-line view-cart">View Cart</a><a
-                                        href="@if(Cookie::get('token')!==null){{url('/checkout-page')}}@else {{url('/login')}} @endif" class="btn btn-fill-out checkout">Checkout</a></p>
+                                <div class="cart_footer">
+                                    <p class="cart_total"><strong>Subtotal:</strong> <span class="cart_price"> <span
+                                                class="price_symbole">$</span></span> <span class="subT">0</span>
+                                    </p>
+                                    <p class="cart_buttons"><a
+                                            href="@if(Cookie::get('token')!==null){{url('/cart-page')}} @else {{url('/login')}}  @endif"
+                                            class="btn btn-fill-line view-cart">View Cart</a><a
+                                            href="@if(Cookie::get('token')!==null){{url('/checkout-page')}}@else {{url('/login')}} @endif"
+                                            class="btn btn-fill-out checkout">Checkout</a></p>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                        @endif
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -97,8 +103,8 @@
                     @if(Route::currentRouteName()==='home')
 
                         <div class="categories_wrap">
-                            <button type="button" data-bs-toggle="show" data-bs-target="#navCatContent"
-                                    aria-expanded="false" class="categories_btn">
+                            <button type="button" data-bs-toggle="collapse" data-bs-target="#navCatContent"
+                                    aria-expanded="false" class="categories_btn collapsed">
                                 <i class="linearicons-menu"></i><span>All Categories </span>
                             </button>
                             <div id="navCatContent" class="nav_cat navbar nav collapse">
@@ -289,7 +295,7 @@
 
 
 <script>
-    ( async ()=> {
+    (async () => {
 
             await wishListCount()
             await cartList2()
@@ -297,7 +303,6 @@
 
         }
     )()
-
 
 
     async function category() {
@@ -312,25 +317,24 @@
 
 
             let cat = `<li class="dropdown dropdown-mega-menu">
-                                    <a class="dropdown-item nav-link dropdown-toggler" href=""
-                                       data-bs-toggle="dropdown"><i class="flaticon-tv"></i> <span>${item['category_name']}</span></a>
-                                    <div class="dropdown-menu">
-                                        <ul class="mega-menu d-lg-flex">
-                                            <li class="mega-menu-col col-lg-6">
-                                                <ul class="d-lg-flex">
-                                                    <li class=" col-lg-6">
-                                                        <ul>
-                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Vestibulum
-                                                                    sed</a></li>
+                                    <a class=" nav-link " href="/productsByCategory?id=${item['id']}"> <span>${item['category_name']}</span></a>
+<!--                                    <div class="dropdown-menu">-->
+<!--                                        <ul class="mega-menu d-lg-flex">-->
+<!--                                            <li class="mega-menu-col col-lg-6">-->
+<!--                                                <ul class="d-lg-flex">-->
+<!--                                                    <li class=" col-lg-6">-->
+<!--                                                        <ul>-->
+<!--                                                            <li><a class="dropdown-item nav-link nav_item" href="#">Vestibulum-->
+<!--                                                                    sed</a></li>-->
 
-                                                        </ul>
-                                                    </li>
+<!--                                                        </ul>-->
+<!--                                                    </li>-->
 
-                                                </ul>
-                                            </li>
+<!--                                                </ul>-->
+<!--                                            </li>-->
 
-                                        </ul>
-                                    </div>
+<!--                                        </ul>-->
+<!--                                    </div>-->
                                 </li>`
             let pro = ` <li><a class="dropdown-item nav-link nav_item" href="/productsByCategory?id=${item['id']}">${item['category_name']} </a></li>`
 
@@ -348,43 +352,49 @@
 
     async function cartList2() {
 
+        try {
 
-        let res = await axios.get(`/cartList`);
-        $("#menuCartList").empty();
 
-        res.data['data'].forEach((item, i) => {
-            let EachItem = `<li>
+            let res = await axios.get(`/cartList`);
+            $("#menuCartList").empty();
+
+            res.data['data'].forEach((item, i) => {
+                let EachItem = `<li>
                                     <a href="#" class="item_remove" data-id="${item['product_id']}"><i class="ion-close"></i></a>
                                     <a href="#"><img src=" ${item['product']['image']}" alt="cart_thumb1">${item['product']['title']}</a>
                                     <span class="cart_quantity"> ${item['qty']} x <span class="cart_amount"> <span
                                                 class="price_symbole">$</span></span>${item['product']['discount_price']}</span>
                                 </li>`
-            $("#menuCartList").append(EachItem);
-        })
+                $("#menuCartList").append(EachItem);
+            })
 
-        await cartTotal(res.data['data']);
+            await cartTotal(res.data['data']);
 
-        $(".item_remove").on('click', function () {
-            let id = $(this).data('id');
-            removeCartProduct(id);
-            // location.reload()
-        })
-
-
-    async function cartTotal(data) {
-        let Total = 0
-        let cartQty = 0
-        data.forEach(function (item, i) {
-            Total = Total + parseFloat(item['price']);
-            cartQty = cartQty + 1
+            $(".item_remove").on('click', function () {
+                let id = $(this).data('id');
+                removeCartProduct(id);
+                // location.reload()
+            })
+        } catch (e) {
 
 
-        })
+        }
 
-        $('.subT').text(Total)
-        $('#cartQty').text(cartQty)
 
-    }
+        async function cartTotal(data) {
+            let Total = 0
+            let cartQty = 0
+            data.forEach(function (item, i) {
+                Total = Total + parseFloat(item['price']);
+                cartQty = cartQty + 1
+
+
+            })
+
+            $('.subT').text(Total)
+            $('#cartQty').text(cartQty)
+
+        }
     }
 
 
@@ -403,26 +413,49 @@
     }
 
 
-    async function wishListCount()
-    {
+    async function wishListCount() {
 
 
-        let res= await axios.get('/wishList')
+        try {
 
 
-        let totalWish=0
-        if(res.data['data']!==null)
-        {
-            res.data['data'].forEach(function (item,i)
-            {
-                totalWish=totalWish+1
-            })
+            let res = await axios.get('/wishList')
 
-            $('#wishlistCount').text(totalWish)
 
+            let totalWish = 0
+            if (res.data['data'] !== null) {
+                res.data['data'].forEach(function (item, i) {
+                    totalWish = totalWish + 1
+                })
+
+                $('#wishlistCount').text(totalWish)
+
+
+            }
+        } catch (e) {
 
         }
 
 
+    }
+
+    async function searchProduct() {
+
+        let searchProduct = $('#searchName').val();
+
+        if (searchProduct.length === 0) {
+            alert('Product Name Required')
+        } else {
+            let res = await axios.get(`/products-search/${searchProduct}`)
+
+            if (res.data['message'] === "success") {
+                sessionStorage.setItem(`productName`, searchProduct)
+                window.location.href = `/search-products`
+
+            } else {
+                console.error('error')
+            }
+
+        }
     }
 </script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\responseHelper;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductDetail;
 use App\Models\ProductSlider;
@@ -75,7 +76,21 @@ class ProductController extends Controller
     }
 
 
+function productSearch(Request $request)
+{
+    try {
 
+    $data= Product::where('title','like', '%'.$request->product.'%')->get();
+
+
+
+        return responseHelper::out('success', $data, 200);
+    }
+    catch (Exception $exception)
+    {
+        return responseHelper::out($exception->getMessage(), null, 200);
+    }
+}
 
 
 

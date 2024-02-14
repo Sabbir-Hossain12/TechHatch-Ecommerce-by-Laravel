@@ -32,6 +32,7 @@ Route::view('/cart-page','pages.cartList-page');
 Route::view('/my-account','pages.myAccount-page');
 Route::view('/checkout-page','pages.checkout-page');
 Route::view('/order-completed','pages.order-completed-page');
+Route::view('/search-products','pages.search-product');
 // *****************************************************************
 //*********************** Backend API routes************************
 //******************************************************************
@@ -51,6 +52,10 @@ Route::get('/productsByCategory/{id}', [ProductController::class, 'productListBy
 Route::get('/productsByRemark/{remark}', [ProductController::class, 'productListByRemark']);
 Route::get('/productsSlider', [ProductSliderController::class, 'productSlider']);
 Route::get('/productsDetails/{id}', [ProductController::class, 'productDetailsById']);
+
+//search product
+Route::get('/products-search/{product}', [ProductController::class, 'productSearch']);
+
 //policy
 Route::get('/policy/{type}', [PolicyController::class, 'showPolicy']);
 //profile
