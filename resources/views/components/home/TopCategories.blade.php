@@ -20,11 +20,11 @@
 
     async function TopCategory(){
         let res=await axios.get("/categories");
-
+        // slice(0,6).
         $("#TopCategoryItem").empty()
-        res.data['data'].slice(0,6). forEach((item,i)=>{
-            let EachItem= `<div class="col-2 d-flex align-items-stretch">
-                <div class="item">
+        res.data['data']. forEach((item,i)=>{
+            let EachItem= `<div class="col-3 col-sm-2 d-flex align-items-center justify-content-center">
+                <div class="item d-flex flex-column flex-grow-1">
                     <div class="categories_box">
                         <a href="/productsByCategory?id=${item['id']}">
                             <img src="${item['category_img']}" alt="cat_img1"/>

@@ -33,6 +33,10 @@ Route::view('/my-account','pages.myAccount-page');
 Route::view('/checkout-page','pages.checkout-page');
 Route::view('/order-completed','pages.order-completed-page');
 Route::view('/search-products','pages.search-product');
+Route::view('/about-us','pages.about-us');
+Route::view('/contact-us','pages.contact-us');
+Route::view('/faq','pages.faq');
+
 // *****************************************************************
 //*********************** Backend API routes************************
 //******************************************************************

@@ -23,11 +23,9 @@
                     <div class="widget">
                         <h6 class="widget_title">Useful Links</h6>
                         <ul class="widget_links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Location</a></li>
-                            <li><a href="#">Affiliates</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{{url('about-us')}}">About Us</a></li>
+                            <li><a href="{{url('faq')}}">FAQ</a></li>
+                            <li><a href="{{url('contact-us')}}">Contact us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,11 +33,11 @@
                     <div class="widget">
                         <h6 class="widget_title">Category</h6>
                         <ul class="widget_links">
-                            <li><a href="#">Men</a></li>
-                            <li><a href="#">Woman</a></li>
-                            <li><a href="#">Kids</a></li>
-                            <li><a href="#">Best Saller</a></li>
-                            <li><a href="#">New Arrivals</a></li>
+                            <li><a href="#">SmartPhone</a></li>
+                            <li><a href="#">TV and Home</a></li>
+                            <li><a href="#">Computer and Laptop</a></li>
+                            <li><a href="#">Drones</a></li>
+                            <li><a href="#">Camera</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,11 +45,8 @@
                     <div class="widget">
                         <h6 class="widget_title">My Account</h6>
                         <ul class="widget_links">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Discount</a></li>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Orders History</a></li>
-                            <li><a href="#">Order Tracking</a></li>
+                            <li><a href="{{url('/my-account')}}">My Account</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -61,15 +56,15 @@
                         <ul class="contact_info contact_info_light">
                             <li>
                                 <i class="ti-location-pin"></i>
-                                <p>123 Street, Old Trafford, New South London , UK</p>
+                                <p>123 Street, Uttara, Dhaka , Bangladesh</p>
                             </li>
                             <li>
                                 <i class="ti-email"></i>
-                                <a href="mailto:info@sitename.com">info@sitename.com</a>
+                                <a href="mailto:info@sitename.com">info@techhatch.com</a>
                             </li>
                             <li>
                                 <i class="ti-mobile"></i>
-                                <p>+ 457 789 789 65</p>
+                                <p>+ 880 789 789 657 8</p>
                             </li>
                         </ul>
                     </div>
@@ -81,7 +76,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="mb-md-0 text-center text-md-start">© 2020 All Rights Reserved by Bestwebcreator</p>
+                    <p class="mb-md-0 text-center text-md-start">© 2020 All Rights Reserved by TechHatch</p>
                 </div>
                 <div class="col-md-6">
                     <ul class="footer_payment text-center text-lg-end">

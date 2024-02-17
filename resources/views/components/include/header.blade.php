@@ -29,26 +29,42 @@
 
                 <ul class="navbar-nav attr-nav align-items-center">
                     @if(Cookie::get('token')!==null)
-                        <li class="dropdown">
-                            <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown"><i
-                                    class="linearicons-user"></i><span class="bold " id="user"> Welcome </span></a>
-                            <div class="dropdown-menu" id="hoverDropdown">
-                                <ul class="menu d-lg-flex">
-                                    <li class="menu-col col-lg-3">
-                                        <ul id="" class="navbar-nav nav-link">
+                        {{--                        <li class="dropdown">--}}
+                        {{--                            <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown"><i--}}
+                        {{--                                    class="linearicons-user"></i><span class="bold " id="user"> Welcome </span></a>--}}
+                        {{--                            <div class="dropdown-menu" id="hoverDropdown">--}}
+                        {{--                                <ul class="menu d-lg-flex">--}}
+                        {{--                                    <li class="menu-col col-lg-3">--}}
+                        {{--                                        <ul id="" class="navbar-nav nav-link">--}}
 
-                                            <li><a class="dropdown-item nav-link text-decoration-none"
-                                                   href="{{url('/logout')}}">Logout</a></li>
-                                            <li><a class="dropdown-item nav-link text-decoration-none"
-                                                   href="{{url('/my-account')}}">Account</a></li>
+                        {{--                                            <li><a class="dropdown-item nav-link text-decoration-none"--}}
+                        {{--                                                   href="{{url('/logout')}}">Logout</a></li>--}}
+                        {{--                                            <li><a class="dropdown-item nav-link text-decoration-none"--}}
+                        {{--                                                   href="{{url('/my-account')}}">Account</a></li>--}}
 
-                                        </ul>
-                                    </li>
+                        {{--                                        </ul>--}}
+                        {{--                                    </li>--}}
+
+                        {{--                                </ul>--}}
+
+                        {{--                            </div>--}}
+                        {{--                        </li>--}}
+
+                        <li class="dropdown cart_dropdown"><a class="nav-link cart_trigger" href=""
+                                                              data-bs-toggle="dropdown"><i
+                                    class="linearicons-user"></i><span class="cart_count" id="">Welcome</span></a>
+
+                            <div class="cart_box cart_right dropdown-menu dropdown-menu-right">
+                                <ul class="cart_list" id="">
+                                    <li><a href="{{url('/my-account')}}">My Account </a></li>
+                                    <li><a href="{{url('/logout')}}">Logout </a></li>
 
                                 </ul>
 
+
                             </div>
                         </li>
+
                     @else
 
                         <li class=""><a href="{{url('/login')}}" class="nav-link "><i class="linearicons-user"></i><span
@@ -138,16 +154,7 @@
                                        href="{{route('home')}}">Home</a>
 
                                 </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Pages</a>
-                                    <div class="dropdown-menu">
-                                        <ul>
-                                            <li><a class="dropdown-item nav-link nav_item" href="">About
-                                                    Us</a></li>
 
-                                        </ul>
-                                    </div>
-                                </li>
 
                                 <li class="dropdown ">
                                     <a class="dropdown-toggle nav-link" href="#"
@@ -167,118 +174,9 @@
                                 </li>
 
 
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Blog</a>
-                                    <div class="dropdown-menu dropdown-reverse">
-                                        <ul>
-                                            <li>
-                                                <a class="dropdown-item menu-link dropdown-toggler"
-                                                   href="#">Grids</a>
-                                                <div class="dropdown-menu">
-                                                    <ul>
-                                                        <li><a class="dropdown-item nav-link nav_item"
-                                                               href="">3 columns</a></li>
-
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item menu-link dropdown-toggler"
-                                                   href="#">Masonry</a>
-                                                <div class="dropdown-menu">
-                                                    <ul>
-                                                        <li><a class="dropdown-item nav-link nav_item"
-                                                               href="blog-masonry-three-columns.html">3 columns</a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item menu-link dropdown-toggler" href="#">Single
-                                                    Post</a>
-                                                <div class="dropdown-menu">
-                                                    <ul>
-                                                        <li><a class="dropdown-item nav-link nav_item"
-                                                               href="blog-single.html">Default</a></li>
-
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item menu-link dropdown-toggler"
-                                                   href="#">List</a>
-                                                <div class="dropdown-menu">
-                                                    <ul>
-                                                        <li><a class="dropdown-item nav-link nav_item"
-                                                               href="">left sidebar</a>
-                                                        </li>
-                                                        <li><a class="dropdown-item nav-link nav_item"
-                                                               href="">right sidebar</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="dropdown dropdown-mega-menu">
-                                    <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Shop</a>
-                                    <div class="dropdown-menu">
-                                        <ul class="mega-menu d-lg-flex">
-                                            <li class="mega-menu-col col-lg-9">
-                                                <ul class="d-lg-flex">
-                                                    <li class="mega-menu-col col-lg-4">
-                                                        <ul>
-                                                            <li class="dropdown-header">Shop Page Layout</li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                   href="">shop List view</a></li>
-
-                                                        </ul>
-                                                    </li>
-                                                    <li class="mega-menu-col col-lg-4">
-                                                        <ul>
-                                                            <li class="dropdown-header">Other Pages</li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                   href="">Cart</a></li>
-
-                                                        </ul>
-                                                    </li>
-                                                    <li class="mega-menu-col col-lg-4">
-                                                        <ul>
-                                                            <li class="dropdown-header">Product Pages</li>
-                                                            <li><a class="dropdown-item nav-link nav_item"
-                                                                   href="">Default</a></li>
-
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-3">
-                                                <div class="header_banner">
-                                                    <div class="header_banner_content">
-                                                        <div class="shop_banner">
-                                                            <div class="banner_img overlay_bg_40">
-                                                                <img src=" {{asset('assets')}}/images/shop_banner3.jpg"
-                                                                     alt="shop_banner"/>
-                                                            </div>
-                                                            <div class="shop_bn_content">
-                                                                <h5 class="text-uppercase shop_subtitle">New
-                                                                    Collection</h5>
-                                                                <h3 class="text-uppercase shop_title">Sale 30%
-                                                                    Off</h3>
-                                                                <a href="#"
-                                                                   class="btn btn-white rounded-0 btn-sm text-uppercase">Shop
-                                                                    Now</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="nav-link nav_item" href="">Contact Us</a></li>
+                                <li><a class="nav-link nav_item" href="{{url('/about-us')}}">About Us</a></li>
+                                <li><a class="nav-link nav_item" href="{{url('/contact-us')}}">Contact Us</a></li>
+                                <li><a class="nav-link nav_item" href="{{url('/faq')}}">FAQ</a></li>
                             </ul>
                         </div>
                         {{--                        <div class="contact_phone contact_support">--}}
