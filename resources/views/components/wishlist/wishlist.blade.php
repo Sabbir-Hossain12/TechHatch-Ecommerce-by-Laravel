@@ -82,7 +82,7 @@ let stock='';
         await wishList()
         await wishListCount()
 
-        alert('Wish Product Deleted')
+        successToast('Wish Product Deleted')
     }
 
 </script>

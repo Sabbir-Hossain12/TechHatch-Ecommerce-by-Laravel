@@ -13,8 +13,10 @@
 
     <!-- SITE TITLE -->
     <title>TechHatch</title>
+
     <!-- Favicon Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href=" {{asset('assets')}}/images/favicon.png">
+    <link rel="stylesheet"  href=" {{asset('css')}}/toastify.min.css">
+    <link rel="stylesheet" href=" {{asset('assets')}}/css/animate.css">
     <!-- Animation CSS -->
     <link rel="stylesheet" href=" {{asset('assets')}}/css/animate.css">
     <!-- Latest Bootstrap min CSS -->
@@ -83,7 +85,7 @@
 
 <script src=" {{asset('assets')}}/js/config.js"></script>
 
-<script src=" {{asset('assets')}}/js/toastify-js.js"></script>
+<script src=" {{asset('js')}}/toastify-js.js"></script>
 
 
 

@@ -198,7 +198,7 @@
         }
         catch (e) {
 
-            alert('Products not found')
+            errorToast('Products not found')
         }
     }
 
@@ -208,6 +208,11 @@
             preloader.delay(50).fadeIn(60).removeClass('loaded');
             let res = await axios.get(`/createWish/${id}`)
             preloader.delay(50).fadeOut(60).addClass('loaded');
+
+            if(res.data['message']==='success')
+            {
+                successToast('Add to Wish List !')
+            }
            await wishListCount()
         } catch (e) {
             if (e.response.status === 401) {
@@ -231,11 +236,11 @@
 
             }
             if (color.length === 0) {
-                alert('Colors Field Required')
+                errorToast('Color Required')
             } else if (size.length === 0) {
-                alert('Size Field Required')
+                errorToast('Size Field Required')
             } else if (qty === 0) {
-                alert('Quantity Cannot be Zero')
+                errorToast('Quantity Cannot be Zero')
             } else {
 
                 let preloader = $(".preloader");
@@ -243,7 +248,7 @@
                 let res = await axios.post(`/createCart`, obj)
                 preloader.delay(50).fadeOut(60).addClass('loaded');
 
-                alert('product added to cart! ')
+                successToast('product added to cart! ')
                 await cartList2()
             }
 

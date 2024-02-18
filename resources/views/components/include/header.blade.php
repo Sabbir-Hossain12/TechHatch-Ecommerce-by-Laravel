@@ -306,7 +306,7 @@
             await cartList2()
 
         } else {
-            alert('Request Failed')
+            errorToast('Request Failed')
         }
     }
 
