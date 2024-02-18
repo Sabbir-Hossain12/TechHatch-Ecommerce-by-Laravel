@@ -14,7 +14,7 @@ following a sophisticated API-first approach for enhanced scalability. </p>
 
 
 
-<a href="http://techhatch-pos.great-site.net">View Demo</a>
+<a href="http://techhatch-ecom.great-site.net/">View Demo</a>
 </div>
 
 
@@ -136,7 +136,7 @@ browser.
 
 <!-- ROADMAP -->
 
-## Product Requirement and Roadmap
+## Project Requirement and Roadmap
 
 * Product Listing According to Category
 * Product Listing According to Brand
