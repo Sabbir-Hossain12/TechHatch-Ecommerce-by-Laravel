@@ -5,7 +5,12 @@
     @include('components.include.footer')
 
     <script>
+        (async () => {
+            await category()
+            // await TopCategory()
 
+
+        })()
 
         $(".preloader").delay(50).fadeOut(60).addClass('loaded');
 

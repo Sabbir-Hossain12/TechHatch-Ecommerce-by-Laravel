@@ -30,23 +30,27 @@
         let otp = $('#code').val();
         let email = sessionStorage.getItem('email')
         if (otp.length === 0) {
-            alert('OTP Required')
+            errorToast('OTP Required')
         } else {
             let res = await axios.post('/verifyLogin', {email: email, otp: otp})
 
             $(".preloader").delay(50).fadeOut(60).removeClass('loaded');
 
             if (res.data['message'] === 'success') {
-                // sessionStorage.clear()
+                 // sessionStorage.clear()
+                sessionStorage.removeItem('email');
                 if (sessionStorage.getItem('last_location')) {
 
                     window.location.href = sessionStorage.getItem('last_location')
                 } else {
                     window.location.href = '/';
                 }
+
+                    successToast('Login Successful')
+
             } else {
                 $(".preloader").delay(50).fadeOut(60).addClass('loaded');
-                alert('Failed')
+                errorToast('Failed')
             }
         }
     }

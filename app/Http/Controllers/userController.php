@@ -64,8 +64,7 @@ class userController extends Controller
 
             $request->validate(
                 [
-                    'otp' => 'required'
-//              |min:4|max:4|
+                    'otp' => 'required|min:4|max:4'
                 ]
             );
 

@@ -34,7 +34,7 @@
         let email = $('#email').val();
 
         if (email.length === 0) {
-            alert('Enter Email')
+            errorToast('Email Required')
         } else {
 
             preloader.delay(90).fadeIn(100).removeClass('loaded');
@@ -43,9 +43,10 @@
             if (res.data['message'] === 'success') {
                 sessionStorage.setItem('email', email)
                 window.location.href = '/verify';
+                successToast('A 4 digit code has been sent to your email.')
             } else {
                 preloader.delay(90).fadeOut(100).addClass('loaded');
-                alert('Invalid Email')
+                errorToast('Invalid Email')
             }
 
         }
