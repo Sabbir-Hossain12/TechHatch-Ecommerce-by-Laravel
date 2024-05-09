@@ -312,3 +312,5 @@ i would like to give credit to some of the resources down below that helped my p
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 
 [JQuery-url]: https://jquery.com 
+
+------ ---------------------------- ------
